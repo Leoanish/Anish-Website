@@ -88,10 +88,19 @@ img { max-width: 100%; display: block; }
 .section-heading.light { grid-template-columns: .7fr 1.5fr 1fr; }
 .section-heading.light h2 { grid-column: 2 / 4; max-width: 850px; }
 .project-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 1px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.16); }
-.project-card { position: relative; min-height: 340px; padding: clamp(28px, 4vw, 52px); background: var(--forest); overflow: hidden; }
+.project-card { --project-accent: var(--acid); position: relative; min-height: 390px; padding: clamp(28px, 4vw, 52px); background: var(--forest); overflow: hidden; isolation: isolate; }
+.project-card::before { content: ""; position: absolute; inset: 0; z-index: -2; background-image: var(--project-image); background-position: center; background-size: cover; transform: scale(1.01); transition: transform .65s cubic-bezier(.22,1,.36,1), filter .65s ease; }
+.project-card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(4,17,15,.14) 5%, rgba(4,17,15,.66) 52%, rgba(4,17,15,.97) 100%), linear-gradient(90deg, rgba(4,17,15,.6), transparent 74%); }
+.project-card:hover::before { transform: scale(1.055); filter: saturate(1.08); }
+.project-card > * { position: relative; z-index: 1; }
+.project-lidar { --project-image: url("assets/research/uav-lidar.jpg"); --project-accent: #74e8ef; }
+.project-weather { --project-image: url("assets/research/weather-data.jpg"); --project-accent: #ffc464; }
+.project-geosampler { --project-image: url("assets/research/geosampler.jpg"); --project-accent: #5ee2c0; }
+.project-nitrogen { --project-image: url("assets/research/nitrogen-management.jpg"); --project-accent: #f5b642; }
+.project-pixels { --project-image: url("assets/research/plant-pixel.jpg"); --project-accent: #ff8f73; }
 .project-card.featured { grid-row: span 2; min-height: 681px; display: flex; flex-direction: column; justify-content: flex-end; }
 .project-number { position: absolute; top: 22px; right: 24px; color: rgba(255,255,255,.42); font-family: var(--mono); font-size: 11px; }
-.project-meta { margin: 0 0 18px; color: var(--acid); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.project-meta { margin: 0 0 18px; color: var(--project-accent); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
 .project-card h3 { max-width: 520px; margin: 0; font-family: var(--serif); font-size: clamp(32px, 4vw, 54px); font-weight: 500; line-height: 1; }
 .project-card > p:not(.project-meta) { max-width: 600px; color: #aebcb7; }
 .project-card a { width: max-content; margin-top: 12px; color: white; text-underline-offset: 5px; }
@@ -109,12 +118,22 @@ img { max-width: 100%; display: block; }
 .cv-tabs button.active { background: var(--ink); color: white; }
 .download-cv { font-weight: 700; text-underline-offset: 5px; }
 .cv-item { display: grid; grid-template-columns: 120px 1fr 36px; gap: 22px; align-items: start; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.cv-item[data-cv-category="publications"] { grid-template-columns: 76px minmax(170px, 220px) 1fr 36px; align-items: center; padding-block: 18px; }
 .cv-item[hidden] { display: none; }
 .cv-year, .cv-type { font-family: var(--mono); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; }
 .cv-type { color: #317562; }
 .cv-item h3 { margin: 5px 0 2px; font-family: var(--serif); font-size: 24px; font-weight: 500; line-height: 1.2; }
 .cv-item p { margin: 4px 0 0; color: var(--muted); }
 .cv-item > a { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; text-decoration: none; }
+.cv-paper { position: relative; min-height: 132px; overflow: hidden; border-radius: 12px; background-position: center; background-size: cover; box-shadow: 0 12px 35px rgba(7,27,24,.12); }
+.cv-paper::after { content: ""; position: absolute; inset: 0; background: linear-gradient(145deg, rgba(3,18,15,.08), rgba(3,18,15,.68)); }
+.cv-paper span { position: absolute; right: 11px; bottom: 8px; z-index: 1; color: white; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; }
+.cv-paper-cottonvarx { background-image: url("assets/research/cottonvarx.jpg"); }
+.cv-paper-peanut { background-image: url("assets/research/peanut-ai.jpg"); }
+.cv-paper-lidar { background-image: url("assets/research/uav-lidar.jpg"); }
+.cv-paper-lint { background-image: url("assets/research/cotton-lint.jpg"); }
+.cv-paper-yam { background-image: url("assets/research/yam-nutrition.jpg"); }
+.cv-paper-rice { background-image: url("assets/research/spring-rice.jpg"); }
 .cv-footnote { margin-top: 24px; color: var(--muted); font-size: 13px; }
 
 .beyond-section { padding-block: 110px; background: var(--paper-2); }
@@ -208,6 +227,11 @@ button, a { transition: color .2s, background .2s, transform .2s, border-color .
   .cv-toolbar { align-items: flex-start; flex-direction: column; }
   .cv-item { grid-template-columns: 72px 1fr; gap: 15px; }
   .cv-item > a { grid-column: 2; }
+  .cv-item[data-cv-category="publications"] { grid-template-columns: 64px 1fr; align-items: start; }
+  .cv-item[data-cv-category="publications"] .cv-year { grid-column: 1; grid-row: 1; }
+  .cv-item[data-cv-category="publications"] .cv-paper { grid-column: 1 / -1; grid-row: 2; min-height: 190px; }
+  .cv-item[data-cv-category="publications"] .cv-paper + div { grid-column: 1 / -1; grid-row: 3; }
+  .cv-item[data-cv-category="publications"] > a { grid-column: 2; grid-row: 4; }
   .beyond-grid { grid-template-columns: 1fr; }
   .beyond-card:first-child { grid-column: auto; }
   .agent-invite { grid-template-columns: 1fr; }
