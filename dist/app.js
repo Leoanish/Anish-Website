@@ -136,6 +136,40 @@ document.querySelectorAll("[data-cv-filter]").forEach(button => {
   });
 });
 
+const projectButtons = document.querySelectorAll(".project-toggle");
+
+function closeProject(card) {
+  const button = card.querySelector(".project-toggle");
+  const details = card.querySelector(".project-details");
+  card.classList.remove("expanded");
+  button.setAttribute("aria-expanded", "false");
+  button.querySelector("span").textContent = "Explore project";
+  details.hidden = true;
+}
+
+projectButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const card = button.closest(".project-card");
+    const details = card.querySelector(".project-details");
+    const isOpen = button.getAttribute("aria-expanded") === "true";
+
+    document.querySelectorAll(".project-card.expanded").forEach(openCard => {
+      if (openCard !== card) closeProject(openCard);
+    });
+
+    if (isOpen) {
+      closeProject(card);
+      return;
+    }
+
+    card.classList.add("expanded");
+    button.setAttribute("aria-expanded", "true");
+    button.querySelector("span").textContent = "Close project";
+    details.hidden = false;
+    setTimeout(() => card.scrollIntoView({ behavior: "smooth", block: "nearest" }), 120);
+  });
+});
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } });
 }, { threshold: .1 });
