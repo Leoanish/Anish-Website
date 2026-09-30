@@ -117,6 +117,16 @@
             <h3>UAV LiDAR for cotton</h3>
             <p>Evaluated flight altitude, speed, point-cloud subsampling, and terrain classification to make canopy-height data collection more efficient.</p>
             <a href="https://doi.org/10.3390/rs17091504" target="_blank" rel="noreferrer">Read the publication <span aria-hidden="true">↗</span></a>
+            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-lidar-details"><span>Explore project</span><i aria-hidden="true">+</i></button>
+            <div class="project-details" id="project-lidar-details" hidden>
+              <div class="project-detail-intro"><span>Research question</span><p>How can UAV flight and point-cloud processing choices produce reliable cotton canopy-height measurements without collecting or processing more data than necessary?</p></div>
+              <div class="project-detail-grid">
+                <div><span>What I evaluated</span><p>Flight altitude, flight speed, point-cloud subsampling, and terrain-classification settings.</p></div>
+                <div><span>Research workflow</span><p>Acquire UAV LiDAR → classify terrain → derive canopy height → compare settings → translate results into practical collection guidance.</p></div>
+                <div><span>Why it matters</span><p>Efficient acquisition and processing make high-resolution crop measurements more usable for researchers and precision-agriculture teams.</p></div>
+              </div>
+              <div class="project-tags"><span>UAV LiDAR</span><span>Point clouds</span><span>Canopy height</span><span>Cotton</span><span>R workflows</span></div>
+            </div>
           </article>
           <article class="project-card project-weather reveal" data-project="weather geostatistics machine learning prism daymet">
             <div class="project-number">02</div>
@@ -124,6 +134,16 @@
             <h3>Weather data representativeness</h3>
             <p>Comparing station networks with PRISM and Daymet through geostatistics, machine learning, and landscape covariates.</p>
             <span class="project-status">Active research</span>
+            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-weather-details"><span>Explore project</span><i aria-hidden="true">+</i></button>
+            <div class="project-details" id="project-weather-details" hidden>
+              <div class="project-detail-intro"><span>Research question</span><p>When do gridded weather products represent the conditions experienced in an individual agricultural field—and where do meaningful differences remain?</p></div>
+              <div class="project-detail-grid">
+                <div><span>Data compared</span><p>University of Georgia weather-station observations alongside PRISM and Daymet gridded products.</p></div>
+                <div><span>Analytical approach</span><p>Agreement assessment, spatial statistics, machine learning, and landscape covariates that may explain local differences.</p></div>
+                <div><span>Why it matters</span><p>Field-scale decisions depend on knowing whether an accessible weather product is a trustworthy stand-in for local measurements.</p></div>
+              </div>
+              <div class="project-tags"><span>PRISM</span><span>Daymet</span><span>Geostatistics</span><span>Machine learning</span><span>Weather networks</span></div>
+            </div>
           </article>
           <article class="project-card project-geosampler reveal" data-project="geosampler shiny spatial dashboard">
             <div class="project-number">03</div>
@@ -131,6 +151,16 @@
             <h3>GeoSampler</h3>
             <p>An interactive workflow for spatial data acquisition, comparison, visualization, and customized downloads.</p>
             <a href="https://recuga.shinyapps.io/sentinel2_trial/" target="_blank" rel="noreferrer">Open the dashboard <span aria-hidden="true">↗</span></a>
+            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-geosampler-details"><span>Explore project</span><i aria-hidden="true">+</i></button>
+            <div class="project-details" id="project-geosampler-details" hidden>
+              <div class="project-detail-intro"><span>Product goal</span><p>Reduce the friction between finding spatial data and leaving with a clean, customized dataset that is ready for analysis.</p></div>
+              <div class="project-detail-grid">
+                <div><span>What it brings together</span><p>Spatial data acquisition, side-by-side comparison, interactive visualization, and targeted downloads in one workflow.</p></div>
+                <div><span>Designed for</span><p>Researchers and practitioners who need to inspect coverage and differences before committing to a dataset.</p></div>
+                <div><span>Why it matters</span><p>A visual, reproducible workflow makes geospatial choices easier to understand, document, and repeat.</p></div>
+              </div>
+              <div class="project-tags"><span>R Shiny</span><span>GIS</span><span>Satellite data</span><span>Visualization</span><span>Downloads</span></div>
+            </div>
           </article>
           <article class="project-card project-nitrogen reveal" data-project="nitrogen sensors variable rate cotton">
             <div class="project-number">04</div>
@@ -138,6 +168,16 @@
             <h3>Variable-rate nitrogen</h3>
             <p>Compared crop sensors and nitrogen recommendation approaches across yield, fiber quality, use efficiency, and profitability.</p>
             <span class="project-status">Field research</span>
+            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-nitrogen-details"><span>Explore project</span><i aria-hidden="true">+</i></button>
+            <div class="project-details" id="project-nitrogen-details" hidden>
+              <div class="project-detail-intro"><span>Research question</span><p>How consistently can crop sensors guide in-season nitrogen decisions across changing cotton field environments?</p></div>
+              <div class="project-detail-grid">
+                <div><span>What I compared</span><p>Active and passive crop sensors together with multiple nitrogen-recommendation approaches.</p></div>
+                <div><span>Outcomes considered</span><p>Yield, fiber quality, nitrogen-use efficiency, and profitability—not only sensor response.</p></div>
+                <div><span>Why it matters</span><p>Useful variable-rate recommendations must balance agronomic performance, resource efficiency, and farm economics.</p></div>
+              </div>
+              <div class="project-tags"><span>Crop sensing</span><span>Variable rate</span><span>Nitrogen</span><span>Field trials</span><span>Economics</span></div>
+            </div>
           </article>
           <article class="project-card project-pixels reveal" data-project="plant pixel extractor image phenotyping package plugin">
             <div class="project-number">05</div>
@@ -145,6 +185,16 @@
             <h3>Plant Pixel Extractor</h3>
             <p>A package and plugin for reproducible plant-pixel extraction from field imagery and downstream crop analysis.</p>
             <span class="project-status">In development</span>
+            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-pixels-details"><span>Explore project</span><i aria-hidden="true">+</i></button>
+            <div class="project-details" id="project-pixels-details" hidden>
+              <div class="project-detail-intro"><span>Product goal</span><p>Make plant-pixel extraction from field imagery repeatable and easier to carry into phenotyping and crop-analysis workflows.</p></div>
+              <div class="project-detail-grid">
+                <div><span>Core workflow</span><p>Bring in field imagery → identify plant pixels → create consistent outputs → continue into downstream crop analysis.</p></div>
+                <div><span>What is being built</span><p>A package and companion plugin designed around reproducible image-processing steps.</p></div>
+                <div><span>Why it matters</span><p>Reliable segmentation is a foundational step for turning large image collections into comparable plant measurements.</p></div>
+              </div>
+              <div class="project-tags"><span>Image phenotyping</span><span>Segmentation</span><span>Research software</span><span>Reproducibility</span></div>
+            </div>
           </article>
         </div>
       </div>
