@@ -13,6 +13,19 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <svg class="icon-library" aria-hidden="true">
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="icon-graduation" viewBox="0 0 24 24"><path d="m3 10 9-5 9 5-9 5-9-5Z"/><path d="M7 12.5V17c3 2.4 7 2.4 10 0v-4.5M21 10v6"/></symbol>
+    <symbol id="icon-data" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+    <symbol id="icon-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.5-3.2 2.3-5 5.5-5s5 1.8 5.5 5M15 5.5a3 3 0 0 1 0 5.5M16 14c2.6.2 4 1.9 4.5 5"/></symbol>
+    <symbol id="icon-drone" viewBox="0 0 24 24"><path d="M8 12h8l-1.5 4h-5L8 12ZM12 12V8M5 8h14M3 5h4M17 5h4M5 8V5M19 8V5M12 16v3M9.5 19h5"/></symbol>
+    <symbol id="icon-cloud" viewBox="0 0 24 24"><path d="M7 17H6a4 4 0 0 1-.4-8A6.5 6.5 0 0 1 18 11h.5a3 3 0 0 1 0 6H17M9 16l-1 4M13 16l-1 4M17 16l-1 4"/></symbol>
+    <symbol id="icon-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6ZM9 3v15M15 6v15"/></symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M20 4C11 4 5 8 5 15c0 3 2 5 5 5 7 0 10-7 10-16Z"/><path d="M4 21c3-6 7-9 13-12"/></symbol>
+    <symbol id="icon-scan" viewBox="0 0 24 24"><path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4"/><path d="M8 9h8v6H8zM10 11h4"/></symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8 14-1 7 5-3 5 3-1-7M9.5 9l1.5 1.5L15 7"/></symbol>
+  </svg>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" id="top">
@@ -69,15 +82,15 @@
     <section class="section-shell section-block" id="journey" aria-labelledby="journey-title">
       <div class="section-heading reveal">
         <p class="eyebrow">Academic journey</p>
-        <h2 id="journey-title">From Chitwan’s fields to data-rich agriculture.</h2>
-        <p>A path shaped by practical agriculture, scientific curiosity, and the conviction that technology should remain accountable to the people who use it.</p>
+        <h2 id="journey-title">From Chitwan, Nepal to Georgia, USA.</h2>
+        <p>An academic path from an agricultural education in Nepal to doctoral research at the University of Georgia—connecting field agronomy with sensing, spatial data science, and practical decision tools.</p>
       </div>
       <div class="timeline" role="list">
         <article class="timeline-item reveal" role="listitem">
           <div class="timeline-year">2015—2020</div>
           <div class="timeline-dot" aria-hidden="true"></div>
           <div class="timeline-content">
-            <p class="timeline-place">Chitwan, Nepal</p>
+            <p class="timeline-place"><svg class="inline-icon" aria-hidden="true"><use href="#icon-pin"/></svg>Chitwan, Nepal</p>
             <h3>B.Sc. in Agriculture</h3>
             <p>Agriculture and Forestry University. Built the agronomic foundation that continues to anchor every sensor, model, and line of code.</p>
           </div>
@@ -86,7 +99,7 @@
           <div class="timeline-year">2022—2025</div>
           <div class="timeline-dot" aria-hidden="true"></div>
           <div class="timeline-content">
-            <p class="timeline-place">Athens, Georgia</p>
+            <p class="timeline-place"><svg class="inline-icon" aria-hidden="true"><use href="#icon-pin"/></svg>Athens, Georgia, USA</p>
             <h3>M.S. track → direct Ph.D. transition</h3>
             <p>Joined the University of Georgia as a graduate research assistant and transitioned directly into the doctoral program in 2025.</p>
           </div>
@@ -95,12 +108,18 @@
           <div class="timeline-year">2025—2027</div>
           <div class="timeline-dot active" aria-hidden="true"></div>
           <div class="timeline-content">
-            <p class="timeline-place">University of Georgia</p>
+            <p class="timeline-place"><svg class="inline-icon" aria-hidden="true"><use href="#icon-graduation"/></svg>University of Georgia</p>
             <h3>Ph.D. in Crop & Soil Sciences</h3>
             <p>Researching sensor-based nitrogen management and field-scale weather-data representativeness. Expected completion: 2027.</p>
             <div class="mini-metrics"><span>GPA 3.92 / 4.00</span><span>Graduate Certificate · Agricultural Data Science</span></div>
           </div>
         </article>
+      </div>
+      <div class="research-profile reveal" aria-label="Research profile at a glance">
+        <article><svg class="profile-icon" aria-hidden="true"><use href="#icon-leaf"/></svg><div><span>Core question</span><h3>How can field data improve crop decisions?</h3><p>Sensor-based nitrogen management that considers yield, fiber quality, nitrogen-use efficiency, and profitability.</p></div></article>
+        <article><svg class="profile-icon" aria-hidden="true"><use href="#icon-cloud"/></svg><div><span>Doctoral direction</span><h3>When does weather data represent a field?</h3><p>Comparing station and gridded products while testing the influence of distance, topography, soil, land cover, and other environmental conditions.</p></div></article>
+        <article><svg class="profile-icon" aria-hidden="true"><use href="#icon-people"/></svg><div><span>Translation goal</span><h3>Make complex evidence usable.</h3><p>Reproducible workflows and interactive tools designed for farmers, Extension agents, researchers, and other agricultural decision-makers.</p></div></article>
+        <article><svg class="profile-icon" aria-hidden="true"><use href="#icon-data"/></svg><div><span>Verified record</span><h3>Research, software, and service.</h3><p>Six peer-reviewed papers, thirteen awards and honors, five outreach activities, and leadership in two UGA student organizations.</p></div></article>
       </div>
     </section>
 
@@ -113,6 +132,7 @@
         <div class="project-grid">
           <article class="project-card project-lidar featured reveal" data-project="lidar sensing cotton">
             <div class="project-number">01</div>
+            <svg class="project-icon" aria-hidden="true"><use href="#icon-drone"/></svg>
             <p class="project-meta">UAV systems · 2024—2025</p>
             <h3>UAV LiDAR for cotton</h3>
             <p>Evaluated flight altitude, speed, point-cloud subsampling, and terrain classification to make canopy-height data collection more efficient.</p>
@@ -125,11 +145,13 @@
                 <div><span>Research workflow</span><p>Acquire UAV LiDAR → classify terrain → derive canopy height → compare settings → translate results into practical collection guidance.</p></div>
                 <div><span>Why it matters</span><p>Efficient acquisition and processing make high-resolution crop measurements more usable for researchers and precision-agriculture teams.</p></div>
               </div>
+              <p class="project-evidence"><svg class="inline-icon" aria-hidden="true"><use href="#icon-award"/></svg><span>Research output</span> First-author paper published in <em>Remote Sensing</em>, 2025.</p>
               <div class="project-tags"><span>UAV LiDAR</span><span>Point clouds</span><span>Canopy height</span><span>Cotton</span><span>R workflows</span></div>
             </div>
           </article>
           <article class="project-card project-weather reveal" data-project="weather geostatistics machine learning prism daymet">
             <div class="project-number">02</div>
+            <svg class="project-icon" aria-hidden="true"><use href="#icon-cloud"/></svg>
             <p class="project-meta">Weather intelligence · 2025—Present</p>
             <h3>Weather data representativeness</h3>
             <p>Comparing station networks with PRISM and Daymet through geostatistics, machine learning, and landscape covariates.</p>
@@ -139,14 +161,16 @@
               <div class="project-detail-intro"><span>Research question</span><p>When do gridded weather products represent the conditions experienced in an individual agricultural field—and where do meaningful differences remain?</p></div>
               <div class="project-detail-grid">
                 <div><span>Data compared</span><p>University of Georgia weather-station observations alongside PRISM and Daymet gridded products.</p></div>
-                <div><span>Analytical approach</span><p>Agreement assessment, spatial statistics, machine learning, and landscape covariates that may explain local differences.</p></div>
-                <div><span>Why it matters</span><p>Field-scale decisions depend on knowing whether an accessible weather product is a trustworthy stand-in for local measurements.</p></div>
+                <div><span>Analytical approach</span><p>Geostatistics and machine learning test how station distance, topography, soil, land cover, and environmental conditions influence agreement.</p></div>
+                <div><span>Why it matters</span><p>Uncertainty in temperature and precipitation can affect irrigation scheduling, pest management, nutrient recommendations, and crop performance.</p></div>
               </div>
+              <p class="project-evidence"><svg class="inline-icon" aria-hidden="true"><use href="#icon-graduation"/></svg><span>Current phase</span> Doctoral research at the University of Georgia, active since 2025.</p>
               <div class="project-tags"><span>PRISM</span><span>Daymet</span><span>Geostatistics</span><span>Machine learning</span><span>Weather networks</span></div>
             </div>
           </article>
           <article class="project-card project-geosampler reveal" data-project="geosampler shiny spatial dashboard">
             <div class="project-number">03</div>
+            <svg class="project-icon" aria-hidden="true"><use href="#icon-map"/></svg>
             <p class="project-meta">Research software · 2025—Present</p>
             <h3>GeoSampler</h3>
             <p>An interactive workflow for spatial data acquisition, comparison, visualization, and customized downloads.</p>
@@ -156,14 +180,16 @@
               <div class="project-detail-intro"><span>Product goal</span><p>Reduce the friction between finding spatial data and leaving with a clean, customized dataset that is ready for analysis.</p></div>
               <div class="project-detail-grid">
                 <div><span>What it brings together</span><p>Spatial data acquisition, side-by-side comparison, interactive visualization, and targeted downloads in one workflow.</p></div>
-                <div><span>Designed for</span><p>Researchers and practitioners who need to inspect coverage and differences before committing to a dataset.</p></div>
+                <div><span>Designed for</span><p>Farmers, Extension agents, and researchers who need to visualize spatial variability and compare sources side by side.</p></div>
                 <div><span>Why it matters</span><p>A visual, reproducible workflow makes geospatial choices easier to understand, document, and repeat.</p></div>
               </div>
+              <p class="project-evidence"><svg class="inline-icon" aria-hidden="true"><use href="#icon-globe"/></svg><span>Live output</span> Interactive R Shiny application with customized spatial-data downloads.</p>
               <div class="project-tags"><span>R Shiny</span><span>GIS</span><span>Satellite data</span><span>Visualization</span><span>Downloads</span></div>
             </div>
           </article>
           <article class="project-card project-nitrogen reveal" data-project="nitrogen sensors variable rate cotton">
             <div class="project-number">04</div>
+            <svg class="project-icon" aria-hidden="true"><use href="#icon-leaf"/></svg>
             <p class="project-meta">Precision nutrition · 2022—2025</p>
             <h3>Variable-rate nitrogen</h3>
             <p>Compared crop sensors and nitrogen recommendation approaches across yield, fiber quality, use efficiency, and profitability.</p>
@@ -172,15 +198,17 @@
             <div class="project-details" id="project-nitrogen-details" hidden>
               <div class="project-detail-intro"><span>Research question</span><p>How consistently can crop sensors guide in-season nitrogen decisions across changing cotton field environments?</p></div>
               <div class="project-detail-grid">
-                <div><span>What I compared</span><p>Active and passive crop sensors together with multiple nitrogen-recommendation approaches.</p></div>
-                <div><span>Outcomes considered</span><p>Yield, fiber quality, nitrogen-use efficiency, and profitability—not only sensor response.</p></div>
-                <div><span>Why it matters</span><p>Useful variable-rate recommendations must balance agronomic performance, resource efficiency, and farm economics.</p></div>
+                <div><span>What I compared</span><p>Active and passive crop sensors, sensor-based recommendations, and traditional nitrogen-management practices across field environments.</p></div>
+                <div><span>What I tested</span><p>Sensor accuracy, consistency, and practical usefulness alongside yield, fiber quality, nitrogen-use efficiency, and profitability.</p></div>
+                <div><span>Why it matters</span><p>Useful variable-rate recommendations should reduce input waste while maintaining crop performance and supporting farm economics.</p></div>
               </div>
+              <p class="project-evidence"><svg class="inline-icon" aria-hidden="true"><use href="#icon-data"/></svg><span>Research period</span> Multi-environment cotton field research conducted from 2022 to 2025.</p>
               <div class="project-tags"><span>Crop sensing</span><span>Variable rate</span><span>Nitrogen</span><span>Field trials</span><span>Economics</span></div>
             </div>
           </article>
           <article class="project-card project-pixels reveal" data-project="plant pixel extractor image phenotyping package plugin">
             <div class="project-number">05</div>
+            <svg class="project-icon" aria-hidden="true"><use href="#icon-scan"/></svg>
             <p class="project-meta">Computer vision · 2026—Present</p>
             <h3>Plant Pixel Extractor</h3>
             <p>A package and plugin for reproducible plant-pixel extraction from field imagery and downstream crop analysis.</p>
@@ -193,6 +221,7 @@
                 <div><span>What is being built</span><p>A package and companion plugin designed around reproducible image-processing steps.</p></div>
                 <div><span>Why it matters</span><p>Reliable segmentation is a foundational step for turning large image collections into comparable plant measurements.</p></div>
               </div>
+              <p class="project-evidence"><svg class="inline-icon" aria-hidden="true"><use href="#icon-scan"/></svg><span>Current phase</span> Research package and companion plugin in development since 2026.</p>
               <div class="project-tags"><span>Image phenotyping</span><span>Segmentation</span><span>Research software</span><span>Reproducibility</span></div>
             </div>
           </article>
@@ -284,16 +313,19 @@
         </div>
         <div class="beyond-grid">
           <article class="beyond-card map-card reveal">
+            <svg class="beyond-icon" aria-hidden="true"><use href="#icon-globe"/></svg>
             <span class="card-kicker">Two places, one perspective</span>
-            <h3>Chitwan <span>→</span> Athens</h3>
-            <p>Rooted in Nepal, researching in Georgia, and interested in agricultural questions that cross scales and borders.</p>
+            <h3>Chitwan, Nepal <span>→</span> Athens, USA</h3>
+            <p>Built an agronomic foundation at Agriculture and Forestry University and now develops precision-agriculture research at the University of Georgia.</p>
           </article>
           <article class="beyond-card reveal">
+            <svg class="beyond-icon" aria-hidden="true"><use href="#icon-people"/></svg>
             <span class="card-kicker">Community</span>
             <h3>Building spaces where people connect.</h3>
-            <p>Leadership in both the Nepalese Student Association and UGA’s Integrative Precision Agriculture Club.</p>
+            <p>President of UGA’s Nepalese Student Association from 2024–2025 and Secretary of the Integrative Precision Agriculture Club from 2024–2026.</p>
           </article>
           <article class="beyond-card personal-card reveal">
+            <svg class="beyond-icon" aria-hidden="true"><use href="#icon-award"/></svg>
             <span class="card-kicker">The personal shelf</span>
             <h3>Sports, teams, players & hobbies</h3>
             <p>This part stays intentionally unfilled until Anish chooses the favorites and stories he wants to make public.</p>

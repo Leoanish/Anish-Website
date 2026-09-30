@@ -1,7 +1,7 @@
 const profileKnowledge = [
   {
     topics: ["current research", "researching now", "weather", "prism", "daymet", "research"],
-    answer: "Anish’s current research centers on two connected questions: sensor-based nitrogen management in cotton and whether weather data products are representative at field scale. He compares UGA weather stations with gridded products such as PRISM and Daymet using geostatistics, machine learning, and landscape covariates."
+    answer: "Anish’s current research centers on two connected questions: sensor-based nitrogen management in cotton and whether weather data products are representative at field scale. He compares UGA weather stations with PRISM and Daymet using geostatistics and machine learning, testing how distance, topography, soil, land cover, and environmental conditions influence agreement in variables such as temperature and precipitation."
   },
   {
     topics: ["education", "degree", "phd", "school", "university", "gpa", "nepal"],
@@ -17,7 +17,7 @@ const profileKnowledge = [
   },
   {
     topics: ["nitrogen", "sensor", "variable rate", "cotton"],
-    answer: "His nitrogen-management research compares active and passive crop sensors and recommendation approaches across field environments, with attention to yield, fiber quality, nitrogen-use efficiency, and profitability. He also helped build NxS Advisor from a multi-state nitrogen-by-sulfur dataset."
+    answer: "His nitrogen-management research compares active and passive crop sensors, sensor-based recommendations, and traditional management across field environments. He evaluates accuracy, consistency, and practical usefulness alongside yield, fiber quality, nitrogen-use efficiency, and profitability. He also helped build NxS Advisor from a multi-state nitrogen-by-sulfur dataset."
   },
   {
     topics: ["publication", "papers", "published", "doi"],
