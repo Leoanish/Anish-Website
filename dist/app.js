@@ -136,6 +136,42 @@ document.querySelectorAll("[data-cv-filter]").forEach(button => {
   });
 });
 
+const navigationLinks = [...document.querySelectorAll('.desktop-nav a[href^="#"]')];
+const navigationSections = navigationLinks
+  .map(link => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
+let navigationFrame = null;
+
+function updatePagePosition() {
+  const scrollRange = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+  const progress = Math.min(Math.max(window.scrollY / scrollRange, 0), 1);
+  document.documentElement.style.setProperty("--scroll-progress", `${progress * 100}%`);
+
+  const marker = window.scrollY + document.querySelector(".site-header").offsetHeight + window.innerHeight * .22;
+  let activeSection = null;
+  navigationSections.forEach(section => {
+    if (section.offsetTop <= marker) activeSection = section;
+  });
+
+  navigationLinks.forEach(link => {
+    const isActive = activeSection && link.getAttribute("href") === `#${activeSection.id}`;
+    link.classList.toggle("active", Boolean(isActive));
+    if (isActive) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
+
+  navigationFrame = null;
+}
+
+function requestPagePositionUpdate() {
+  if (navigationFrame === null) navigationFrame = requestAnimationFrame(updatePagePosition);
+}
+
+window.addEventListener("scroll", requestPagePositionUpdate, { passive: true });
+window.addEventListener("resize", requestPagePositionUpdate);
+window.addEventListener("hashchange", requestPagePositionUpdate);
+updatePagePosition();
+
 const projectButtons = document.querySelectorAll(".project-toggle");
 
 function closeProject(card) {
