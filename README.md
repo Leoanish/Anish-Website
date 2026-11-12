@@ -1,5 +1,9 @@
 # Anish Website
 
+## Live website
+
+**[View Anish Bhattarai's live portfolio →](https://anish-bhattarai.leoanish9.chatgpt.site/)**
+
 A modern, responsive research portfolio for Anish Bhattarai. The site turns a traditional academic CV into an exploratory web experience and includes a privacy-friendly, locally grounded “Ask Anish” assistant.
 
 ## Structure
