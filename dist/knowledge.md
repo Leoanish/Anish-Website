@@ -58,7 +58,7 @@ Doctoral research (2025–present) — "Assessing Spatial Representativeness of 
 Where to try things: the website's "Tools & dashboards" section links every live app and repository. Live apps: GeoSampler, FieldRank, Cotton × ENSO Explorer. Installable: Plant Pixel Extractor QGIS plugin (version 3.8, needs QGIS 3.28 or newer; install from the GitHub repository's releases or ZIP). Code only: Root Cause, LiDAR Processing. All public repositories: https://github.com/Leoanish?tab=repositories
 
 ## Peer-reviewed publications (6)
-Publications at a glance (newest first). Every paper below has a summary of results, a link, and a citation. When asked about a paper, never say its results are unavailable. Answer with a one-line summary, then 3 to 5 short bullets of results in plain words, then "Explore more:" with the DOI link, then "Cite this paper:" with the citation exactly as written.
+Publications at a glance (newest first). Every paper below has a summary of results, a link, and a citation. When asked about a paper, never say its results are unavailable. Answer with a one-line summary, then 3 to 5 short bullets of results in plain words, then "Explore more:" with the DOI link, then "Cite this paper:" with the citation exactly as written. Use only the facts and numbers written in that paper's summary: do not add other methods, model names, values, or comparisons, and never estimate numbers. If someone asks for a detail that is not in the summary, say it is in the full paper and give the link. Do not use tables; use short bullets.
 - 2026 · CottonVaRx variety recommender dashboard · European Journal of Agronomy · co-author · https://doi.org/10.1016/j.eja.2026.128090
 - 2026 · Peanut yield and grade prediction with explainable AI · Computers and Electronics in Agriculture · co-author · https://doi.org/10.1016/j.compag.2025.111270
 - 2025 · Optimizing UAV LiDAR data collection in cotton · Remote Sensing · FIRST AUTHOR · https://doi.org/10.3390/rs17091504
@@ -98,8 +98,8 @@ Frequent co-authors: Leonardo M. Bastos, Gonzalo J. Scarpin, Lavesta C. Hand, Jo
    - Cite this paper: Adhikari, G., Bista, D., Bhattarai, A., & Paudel, H. (2021). Effect of tuber size and nutrient source on the yield of yam (Dioscorea sp.). Acta Scientifica Malaysia, 5(1), 17–19. https://doi.org/10.26480/asm.01.2021.17.19
 6. Spring rice paper (2021, Big Data in Agriculture). Anish is a co-author; undergraduate research in Nepal.
    - What: compared four ways of establishing spring rice (variety Hardinath-1) at Khairahani, Chitwan in 2020: mechanical transplanting, wet direct seeding, dry direct seeding, and manual transplanting, measuring growth, yield, and profit.
-   - Results: the best method reached 6.46 t/ha of grain with the highest returns; dry direct seeding did worst, with the lowest grain yield (2.36 t/ha) and a net loss (benefit-cost ratio 0.84).
-   - Takeaway: dry direct seeding is not a profitable choice for spring rice there; see the paper for the full comparison of the other three methods.
+   - Results: mechanical transplanting was best, with the highest grain yield (6.46 t/ha), straw yield (11.98 t/ha), gross returns (NRs 155,620 per ha), and net returns (NRs 81,280 per ha), and a benefit-cost ratio of 2.1. Manual transplanting came second. Wet direct seeding yielded 3.40 t/ha. Dry direct seeding did worst: 2.36 t/ha of grain and a net loss (benefit-cost ratio 0.84). The average across all four methods was 4.33 t/ha.
+   - Takeaway: mechanical transplanting was the most productive and most profitable way to establish spring rice there; dry direct seeding was not profitable.
    - Explore more: https://doi.org/10.26480/bda.01.2021.06.11
    - Cite this paper: Poudel, K., Timilsina, R. H., & Bhattarai, A. (2021). Effect of crop establishment methods on yield of spring rice at Khairahani, Chitwan, Nepal. Big Data in Agriculture, 3(1), 6–11. https://doi.org/10.26480/bda.01.2021.06.11
 
