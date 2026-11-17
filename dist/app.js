@@ -1,7 +1,7 @@
 // Ask Anish — AI chat settings.
 // Paste the URL of the deployed chat proxy (see worker/worker.js and the README) between the quotes.
 // While this is empty, the chat answers from the short built-in notes below instead of the AI.
-const CHAT_ENDPOINT = "";
+const CHAT_ENDPOINT = "https://ask-anish.leoanish.workers.dev";
 const MAX_HISTORY = 10;
 const MAX_QUESTION_LENGTH = 500;
 
