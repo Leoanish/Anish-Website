@@ -22,7 +22,7 @@ const DEFAULT_ORIGINS = [
 
 const MAX_MESSAGES = 12;        // conversation turns kept per request
 const MAX_CHARS = 1000;         // per message
-const RATE_LIMIT = 20;          // requests…
+const RATE_LIMIT = 60;          // requests… (generous: campus Wi-Fi shares one address)
 const RATE_WINDOW_MS = 10 * 60 * 1000; // …per 10 minutes per visitor
 
 // ---------------------------------------------------------------------------
