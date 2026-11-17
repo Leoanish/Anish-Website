@@ -184,6 +184,11 @@ img { max-width: 100%; display: block; }
 .tool-visual { position: relative; flex: 1 1 auto; min-height: 0; overflow: hidden; background: var(--forest); }
 .tool-visual svg, .tool-visual img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left top; }
 .tool-chip { position: absolute; top: 12px; right: 12px; padding: 3px 8px; border-radius: 999px; background: rgba(4,17,15,.72); color: #c9d6d1; font-family: var(--mono); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; backdrop-filter: blur(4px); }
+.ppe-tag { position: absolute; top: 12px; z-index: 1; padding: 5px 11px; border-radius: 999px; font-size: 12px; font-weight: 700; line-height: 1.2; }
+.ppe-tag-left { left: 12px; background: rgba(244,242,234,.92); color: var(--forest); }
+.ppe-tag-right { left: calc(50% + 12px); background: var(--acid); color: var(--forest); }
+.tool-chip.ppe-chip { top: auto; right: auto; bottom: 12px; left: 12px; }
+.ppe-cover { position: absolute; right: 12px; bottom: 12px; z-index: 1; padding: 4px 10px; border-radius: 999px; background: rgba(4,17,15,.82); color: var(--acid); font-size: 11.5px; font-weight: 700; }
 .tool-body { display: flex; flex: none; flex-direction: column; padding: 22px 28px 24px; }
 .tool-kicker { margin: 0 0 6px; color: #32705f; font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
 .tool-body h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 32px; font-weight: 500; letter-spacing: -.02em; line-height: 1.05; }
