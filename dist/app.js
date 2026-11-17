@@ -186,7 +186,7 @@ async function streamAnswer(body) {
     let reason = "";
     try { reason = (await response.json()).error || ""; } catch { /* not JSON */ }
     const error = new Error(reason || `Chat request failed (${response.status})`);
-    error.friendly = response.status === 429 ? reason : "";
+    error.busy = response.status === 429;
     throw error;
   }
 
@@ -244,7 +244,8 @@ async function ask(question) {
   } catch (error) {
     // The AI service is unreachable or not set up: answer from the built-in notes instead.
     console.warn("[Ask Anish] Falling back to built-in answers:", error.message);
-    answer = error.friendly || localAnswer(clean);
+    answer = localAnswer(clean);
+    if (error.busy) answer += "\n\nMany people are asking right now, so this is a shorter built-in answer. Ask again in a minute for the full AI answer.";
     renderRichText(body, answer);
   }
 
