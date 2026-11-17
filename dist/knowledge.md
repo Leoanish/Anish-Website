@@ -58,23 +58,50 @@ Doctoral research (2025–present) — "Assessing Spatial Representativeness of 
 Where to try things: the website's "Tools & dashboards" section links every live app and repository. Live apps: GeoSampler, FieldRank, Cotton × ENSO Explorer. Installable: Plant Pixel Extractor QGIS plugin (version 3.8, needs QGIS 3.28 or newer; install from the GitHub repository's releases or ZIP). Code only: Root Cause, LiDAR Processing. All public repositories: https://github.com/Leoanish?tab=repositories
 
 ## Peer-reviewed publications (6)
-1. CottonVaRx (2026). Scarpin, G. J., Hand, L. C., Roberts, P. M., Bhattarai, A., & Bastos, L. M. "CottonVaRx: A cotton variety recommender dashboard use case from Georgia, USA." European Journal of Agronomy, 177, 128090. https://doi.org/10.1016/j.eja.2026.128090
-   - Anish is 4th author (co-author). Presents CottonVaRx, a dashboard that helps recommend cotton varieties, using Georgia as the use case. (Detailed findings are not summarized here — see the paper.)
-2. Peanut yield and grade prediction (2026). Scarpin, G. J., Studstill, S. B., Monfort, W. S., Tubbs, R. S., Pilon, C., Jakhar, A., Bhattarai, A., Dhaliwal, A. K., & Bastos, L. M. "Peanut yield and grade prediction in Georgia, USA: Integrating management, climate, and remote sensing data with explainable AI." Computers and Electronics in Agriculture, 241, 111270. https://doi.org/10.1016/j.compag.2025.111270
-   - Anish is a co-author. Predicts peanut yield and grade in Georgia by combining management, climate, and remote-sensing data, using explainable AI to interpret what drives the predictions. (Detailed findings are not summarized here — see the paper.)
-3. UAV LiDAR in cotton (2025). Bhattarai, A., Scarpin, G. J., Jakhar, A., Porter, W., Hand, L. C., Snider, J. L., & Bastos, L. M. "Optimizing unmanned aerial vehicle LiDAR data collection in cotton through flight settings and data processing." Remote Sensing, 17(9), 1504. https://doi.org/10.3390/rs17091504
-   - Anish is FIRST AUTHOR. Open access. This is his lead paper.
-   - Why: canopy height matters for cotton management (for example growth-regulator decisions), but standard LiDAR collection and processing guidelines were missing.
-   - Tested: nine flight settings — three altitudes (12.2 m, 24.4 m, 48.8 m) × three speeds (4.8, 9.6, 14.4 km/h). Processed in DJI Terra, examining point-cloud thinning by grid sub-sampling (0, 10, 20, 30, 40, 50 cm) and terrain slope classification (flat, gentle, steep). Judged on accuracy, processing time, and file size.
-   - Found: the best flight altitude was 24.4 m; flight speed had no effect; grid sub-sampling up to 20 cm balanced accuracy, processing time, and file size; the slope category did not significantly change LiDAR-derived canopy height.
-   - Takeaway: you can fly faster and thin the point cloud without losing canopy-height accuracy, making data collection and processing cheaper. Contributes toward standardized LiDAR guidelines for cotton.
-4. Cotton lint yield and quality variability (2025). Scarpin, G. J., Bhattarai, A., Hand, L. C., Snider, J. L., Roberts, P. M., & Bastos, L. M. "Cotton lint yield and quality variability in Georgia, USA: Understanding genotypic and environmental interactions." Field Crops Research, 325, 109822. https://doi.org/10.1016/j.fcr.2025.109822
-   - Anish is 2nd author. Used 73 site-years of Georgia variety-trial data to (i) quantify how environment, genotype (variety), and management affect lint yield and fiber quality, (ii) evaluate how varieties perform and respond across environments, and (iii) identify environmental conditions linked to higher yield or quality.
-5. Yam (2021). Adhikari, G., Bista, D., Bhattarai, A., & Paudel, H. "Effect of tuber size and nutrient source on the yield of yam (Dioscorea sp.)." Acta Scientifica Malaysia, 5(1), 17–19. https://doi.org/10.26480/asm.01.2021.17.19 — co-author; undergraduate-era research in Nepal on how tuber size and nutrient source affect yam yield.
-6. Spring rice (2021). Poudel, K., Timilsina, R. H., & Bhattarai, A. "Effect of crop establishment methods on yield of spring rice at Khairahani, Chitwan, Nepal." Big Data in Agriculture, 3(1), 6–11. https://doi.org/10.26480/bda.01.2021.06.11 — co-author; undergraduate-era research in Nepal comparing crop establishment methods for spring rice.
-
-Publication themes: precision agriculture and remote sensing (LiDAR), crop modeling and explainable AI (peanut), decision dashboards (CottonVaRx), genotype × environment analysis (cotton), and agronomy field trials (yam, rice). Crops studied: cotton, peanut, rice, yam.
+Publications at a glance (newest first). Every paper below has a summary of results, a link, and a citation. When asked about a paper, never say its results are unavailable. Answer with a one-line summary, then 3 to 5 short bullets of results in plain words, then "Explore more:" with the DOI link, then "Cite this paper:" with the citation exactly as written.
+- 2026 · CottonVaRx variety recommender dashboard · European Journal of Agronomy · co-author · https://doi.org/10.1016/j.eja.2026.128090
+- 2026 · Peanut yield and grade prediction with explainable AI · Computers and Electronics in Agriculture · co-author · https://doi.org/10.1016/j.compag.2025.111270
+- 2025 · Optimizing UAV LiDAR data collection in cotton · Remote Sensing · FIRST AUTHOR · https://doi.org/10.3390/rs17091504
+- 2025 · Cotton lint yield and quality variability in Georgia · Field Crops Research · second author · https://doi.org/10.1016/j.fcr.2025.109822
+- 2021 · Tuber size and nutrient source for yam · Acta Scientifica Malaysia · co-author · https://doi.org/10.26480/asm.01.2021.17.19
+- 2021 · Crop establishment methods for spring rice · Big Data in Agriculture · co-author · https://doi.org/10.26480/bda.01.2021.06.11
 Frequent co-authors: Leonardo M. Bastos, Gonzalo J. Scarpin, Lavesta C. Hand, John L. Snider, Phillip M. Roberts, Wesley Porter, Amrinder Jakhar (University of Georgia).
+
+1. CottonVaRx dashboard paper (2026, European Journal of Agronomy). Anish is a co-author.
+   - What: an interactive dashboard that recommends cotton varieties, built from the UGA On-Farm Cotton Variety Evaluation Program: 117 trials at 35 sites over five years (2020–2024), irrigated and dryland.
+   - Results: it lets growers and agents compare how varieties perform across different environments and pick the ones suited to their own conditions, turning years of trial data into a practical variety-selection tool.
+   - Explore more: https://doi.org/10.1016/j.eja.2026.128090
+   - Cite this paper: Scarpin, G. J., Hand, L. C., Roberts, P. M., Bhattarai, A., & Bastos, L. M. (2026). CottonVaRx: A cotton variety recommender dashboard use case from Georgia, USA. European Journal of Agronomy, 177, 128090. https://doi.org/10.1016/j.eja.2026.128090
+2. Peanut yield and grade prediction paper (2026, Computers and Electronics in Agriculture). Anish is a co-author.
+   - What: predicted peanut yield and grade (quality) across Georgia from management, soil, weather, and remote-sensing data. Compared 18 machine-learning models, tested them on site-years they had never seen, and used SHAP (an explainable-AI method) to show which factors drove each prediction.
+   - Results: management plus soil data predicted yield best (typical error about 816 kg/ha); management plus remote-sensing data predicted grade best (error about 1.5 percentage points). Irrigation was by far the strongest driver of yield, followed by field location, clay content in the 15–30 cm soil layer, and season length.
+   - Takeaway: combining farm records with free environmental and satellite data gives useful early estimates of peanut yield and quality, and explainable AI shows growers why.
+   - Explore more: https://doi.org/10.1016/j.compag.2025.111270
+   - Cite this paper: Scarpin, G. J., Studstill, S. B., Monfort, W. S., Tubbs, R. S., Pilon, C., Jakhar, A., Bhattarai, A., Dhaliwal, A. K., & Bastos, L. M. (2026). Peanut yield and grade prediction in Georgia, USA: Integrating management, climate, and remote sensing data with explainable AI. Computers and Electronics in Agriculture, 241, 111270. https://doi.org/10.1016/j.compag.2025.111270
+3. UAV LiDAR in cotton paper (2025, Remote Sensing). Anish is the FIRST AUTHOR; this is his lead paper. Open access.
+   - What: tested nine drone flight settings (altitudes 12.2, 24.4, and 48.8 m × speeds 4.8, 9.6, and 14.4 km/h) and two processing choices in DJI Terra (point-cloud thinning from 0 to 50 cm, and flat/gentle/steep slope classification), judged on canopy-height accuracy, processing time, and file size.
+   - Results: 24.4 m was the best altitude; flight speed did not affect accuracy; thinning the point cloud up to 20 cm kept accuracy while cutting processing time and file size; slope classification made no significant difference.
+   - Takeaway: you can fly faster and thin the data without losing canopy-height accuracy, which makes LiDAR monitoring of cotton (for example for growth-regulator decisions) cheaper. A step toward standard LiDAR guidelines for cotton.
+   - Explore more: https://doi.org/10.3390/rs17091504
+   - Cite this paper: Bhattarai, A., Scarpin, G. J., Jakhar, A., Porter, W., Hand, L. C., Snider, J. L., & Bastos, L. M. (2025). Optimizing unmanned aerial vehicle LiDAR data collection in cotton through flight settings and data processing. Remote Sensing, 17(9), 1504. https://doi.org/10.3390/rs17091504
+4. Cotton lint yield and quality paper (2025, Field Crops Research). Anish is the second author.
+   - What: analysed 73 site-years of Georgia variety trials to separate the effects of environment, variety (genotype), and management on lint yield and fiber quality, and to identify which weather conditions favour high yield and quality.
+   - Results: environment influenced yield and fiber quality (length, strength, uniformity, micronaire) more than variety did. The study produced variety recommendations for each type of environment. Temperature and the length of the squaring and boll-opening stages were the most important factors for micronaire, yellowness, length, and uniformity.
+   - Takeaway: picking the right variety depends on the environment it will grow in; the authors proposed an online variety-selection tool as the next step.
+   - Explore more: https://doi.org/10.1016/j.fcr.2025.109822
+   - Cite this paper: Scarpin, G. J., Bhattarai, A., Hand, L. C., Snider, J. L., Roberts, P. M., & Bastos, L. M. (2025). Cotton lint yield and quality variability in Georgia, USA: Understanding genotypic and environmental interactions. Field Crops Research, 325, 109822. https://doi.org/10.1016/j.fcr.2025.109822
+5. Yam paper (2021, Acta Scientifica Malaysia). Anish is a co-author; undergraduate research in Nepal.
+   - What: a field experiment at Kalyanpur, Chitwan (2018/2019) comparing small (under 50 g) and large (100–150 g) seed tubers with three nutrient sources: farmyard manure, chicken manure, and forest soil.
+   - Results: large seed tubers gave significantly higher yield (about 3.05 kg versus less with small tubers), and tuber size and nutrient source interacted significantly.
+   - Takeaway: plant large (100–150 g) tubers with farmyard manure to raise yam yield.
+   - Explore more: https://doi.org/10.26480/asm.01.2021.17.19
+   - Cite this paper: Adhikari, G., Bista, D., Bhattarai, A., & Paudel, H. (2021). Effect of tuber size and nutrient source on the yield of yam (Dioscorea sp.). Acta Scientifica Malaysia, 5(1), 17–19. https://doi.org/10.26480/asm.01.2021.17.19
+6. Spring rice paper (2021, Big Data in Agriculture). Anish is a co-author; undergraduate research in Nepal.
+   - What: compared four ways of establishing spring rice (variety Hardinath-1) at Khairahani, Chitwan in 2020: mechanical transplanting, wet direct seeding, dry direct seeding, and manual transplanting, measuring growth, yield, and profit.
+   - Results: the best method reached 6.46 t/ha of grain with the highest returns; dry direct seeding did worst, with the lowest grain yield (2.36 t/ha) and a net loss (benefit-cost ratio 0.84).
+   - Takeaway: dry direct seeding is not a profitable choice for spring rice there; see the paper for the full comparison of the other three methods.
+   - Explore more: https://doi.org/10.26480/bda.01.2021.06.11
+   - Cite this paper: Poudel, K., Timilsina, R. H., & Bhattarai, A. (2021). Effect of crop establishment methods on yield of spring rice at Khairahani, Chitwan, Nepal. Big Data in Agriculture, 3(1), 6–11. https://doi.org/10.26480/bda.01.2021.06.11
 
 ## Awards and honors (13)
 - 2026 — NxS Hackathon, Second Place, Team Georgia. Nitrogen Use Efficiency Workshop, Mississippi State University, Starkville, MS (built NxS Advisor).
