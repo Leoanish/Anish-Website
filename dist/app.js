@@ -1,3 +1,11 @@
+// Ask Anish — AI chat settings.
+// Paste the URL of the deployed chat proxy (see worker/worker.js and the README) between the quotes.
+// While this is empty, the chat answers from the short built-in notes below instead of the AI.
+const CHAT_ENDPOINT = "";
+const MAX_HISTORY = 10;
+const MAX_QUESTION_LENGTH = 500;
+
+// Built-in fallback answers, used only when the AI service is unavailable.
 const profileKnowledge = [
   {
     topics: ["current research", "researching now", "weather", "prism", "daymet", "research"],
@@ -57,6 +65,9 @@ const panel = document.querySelector(".agent-panel");
 const backdrop = document.querySelector(".agent-backdrop");
 const input = document.querySelector("#agent-input");
 const chatLog = document.querySelector("#chat-log");
+const sendButton = document.querySelector("#agent-form button");
+const conversation = [];
+let busy = false;
 
 function openAgent() {
   backdrop.hidden = false;
@@ -77,7 +88,7 @@ document.querySelectorAll("[data-open-agent]").forEach(button => button.addEvent
 document.querySelectorAll("[data-close-agent]").forEach(button => button.addEventListener("click", closeAgent));
 document.addEventListener("keydown", event => { if (event.key === "Escape" && panel.classList.contains("open")) closeAgent(); });
 
-function findAnswer(question) {
+function localAnswer(question) {
   const normalized = question.toLowerCase().replace(/[^a-z0-9\s-]/g, " ");
   let best = null;
   let bestScore = 0;
@@ -90,31 +101,155 @@ function findAnswer(question) {
     : "I don’t have enough verified information to answer that yet. I can help with Anish’s education, current research, projects, publications, awards, technical skills, leadership, outreach, or contact details.";
 }
 
+// Turns the assistant's light Markdown (bold, links, lists) into safe DOM nodes.
+function appendInline(parent, text) {
+  const pattern = /\*\*([^*]+)\*\*|\[([^\]]+)\]\((https?:\/\/[^\s)]+|mailto:[^\s)]+)\)|(https?:\/\/[^\s<>()]+[^\s<>().,;:!?])/g;
+  let last = 0;
+  let match;
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > last) parent.append(text.slice(last, match.index));
+    if (match[1] !== undefined) {
+      const strong = document.createElement("strong");
+      strong.textContent = match[1];
+      parent.append(strong);
+    } else {
+      const link = document.createElement("a");
+      link.href = match[3] || match[4];
+      link.textContent = match[2] || match[4].replace(/^https?:\/\//, "");
+      link.target = "_blank";
+      link.rel = "noreferrer";
+      parent.append(link);
+    }
+    last = pattern.lastIndex;
+  }
+  if (last < text.length) parent.append(text.slice(last));
+}
+
+function renderRichText(container, text) {
+  container.replaceChildren();
+  let list = null;
+  text.split(/\n+/).forEach(rawLine => {
+    const line = rawLine.trim();
+    if (!line) return;
+    const bullet = line.match(/^(?:[-*•]|\d+[.)])\s+(.*)$/);
+    if (bullet) {
+      if (!list) { list = document.createElement("ul"); container.append(list); }
+      const item = document.createElement("li");
+      appendInline(item, bullet[1]);
+      list.append(item);
+    } else {
+      list = null;
+      const paragraph = document.createElement("p");
+      appendInline(paragraph, line.replace(/^#{1,6}\s+/, ""));
+      container.append(paragraph);
+    }
+  });
+}
+
+function scrollChat() {
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+
 function addMessage(text, type) {
   const message = document.createElement("div");
   message.className = `message ${type}`;
   const label = document.createElement("span");
   label.className = "message-label";
-  label.textContent = type === "user" ? "You" : "Portfolio guide";
-  const paragraph = document.createElement("p");
-  paragraph.textContent = text;
-  message.append(label, paragraph);
+  label.textContent = type === "user" ? "You" : "Ask Anish";
+  const body = document.createElement("div");
+  body.className = "message-body";
+  if (type === "user") {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = text;
+    body.append(paragraph);
+  } else {
+    renderRichText(body, text);
+  }
+  message.append(label, body);
   chatLog.append(message);
-  chatLog.scrollTo({ top: chatLog.scrollHeight, behavior: "smooth" });
+  scrollChat();
+  return body;
 }
 
-function ask(question) {
-  const clean = question.trim();
-  if (!clean) return;
+async function streamAnswer(body) {
+  const response = await fetch(CHAT_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ messages: conversation.slice(-MAX_HISTORY) })
+  });
+
+  if (!response.ok || !response.body) {
+    let reason = "";
+    try { reason = (await response.json()).error || ""; } catch { /* not JSON */ }
+    const error = new Error(reason || `Chat request failed (${response.status})`);
+    error.friendly = response.status === 429 ? reason : "";
+    throw error;
+  }
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let answer = "";
+
+  while (true) {
+    const { value, done } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const lines = buffer.split("\n");
+    buffer = lines.pop();
+    for (const line of lines) {
+      const data = line.trim();
+      if (!data.startsWith("data:")) continue;
+      const payload = data.slice(5).trim();
+      if (!payload || payload === "[DONE]") continue;
+      try {
+        const delta = JSON.parse(payload).choices?.[0]?.delta?.content;
+        if (delta) {
+          answer += delta;
+          body.classList.remove("thinking");
+          renderRichText(body, answer);
+          scrollChat();
+        }
+      } catch { /* ignore keep-alive or partial lines */ }
+    }
+  }
+
+  if (!answer.trim()) throw new Error("Empty answer");
+  return answer;
+}
+
+async function ask(question) {
+  const clean = question.trim().slice(0, MAX_QUESTION_LENGTH);
+  if (!clean || busy) return;
+  busy = true;
+  sendButton.disabled = true;
+  document.querySelector(".suggestion-row")?.remove();
+
   addMessage(clean, "user");
+  conversation.push({ role: "user", content: clean });
   input.value = "";
   input.style.height = "auto";
-  const typing = document.createElement("div");
-  typing.className = "message assistant";
-  typing.innerHTML = '<span class="message-label">Portfolio guide</span><p>Checking the curated record…</p>';
-  chatLog.append(typing);
-  chatLog.scrollTop = chatLog.scrollHeight;
-  setTimeout(() => { typing.remove(); addMessage(findAnswer(clean), "assistant"); }, 420);
+
+  const body = addMessage("Thinking…", "assistant");
+  body.classList.add("thinking");
+
+  let answer;
+  try {
+    if (!CHAT_ENDPOINT) throw new Error("Chat endpoint not configured");
+    answer = await streamAnswer(body);
+  } catch (error) {
+    // The AI service is unreachable or not set up: answer from the built-in notes instead.
+    console.warn("[Ask Anish] Falling back to built-in answers:", error.message);
+    answer = error.friendly || localAnswer(clean);
+    renderRichText(body, answer);
+  }
+
+  body.classList.remove("thinking");
+  conversation.push({ role: "assistant", content: answer });
+  scrollChat();
+  busy = false;
+  sendButton.disabled = false;
+  if (panel.classList.contains("open")) input.focus();
 }
 
 document.querySelector("#agent-form").addEventListener("submit", event => { event.preventDefault(); ask(input.value); });

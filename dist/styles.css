@@ -218,6 +218,13 @@ img { max-width: 100%; display: block; }
 .message-label { display: block; margin-bottom: 5px; color: #32705f; font-family: var(--mono); font-size: 9px; text-transform: uppercase; }
 .message p { margin: 0; font-size: 14px; line-height: 1.55; }
 .message a { text-underline-offset: 3px; }
+.message-body p + p, .message-body ul + p, .message-body p + ul { margin-top: 8px; }
+.message-body ul { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.55; }
+.message-body li + li { margin-top: 4px; }
+.message-body a { color: #1d6b57; font-weight: 600; overflow-wrap: anywhere; }
+.message-body.thinking p { color: var(--muted); animation: thinking-pulse 1.2s ease-in-out infinite; }
+@keyframes thinking-pulse { 50% { opacity: .45; } }
+.agent-form button:disabled { opacity: .45; cursor: default; }
 .suggestion-row { display: flex; flex-wrap: wrap; gap: 7px; margin: 20px 0; }
 .suggestion-row button { border: 1px solid var(--line); border-radius: 999px; padding: 8px 10px; background: transparent; font-size: 11px; }
 .agent-form { display: grid; grid-template-columns: 1fr 42px; gap: 9px; margin: 0 18px; padding: 8px; border: 1px solid var(--line); border-radius: 15px; background: white; box-shadow: 0 8px 30px rgba(7,27,24,.08); }
