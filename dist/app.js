@@ -345,6 +345,20 @@ projectButtons.forEach(button => {
   });
 });
 
+document.querySelectorAll(".tool-toggle").forEach(button => {
+  button.addEventListener("click", () => {
+    const card = button.closest(".tool-card");
+    const open = !card.classList.contains("open");
+    document.querySelectorAll(".tool-card.open").forEach(other => {
+      other.classList.remove("open");
+      other.querySelector(".tool-toggle").setAttribute("aria-expanded", "false");
+    });
+    card.classList.toggle("open", open);
+    button.setAttribute("aria-expanded", String(open));
+    if (!open) button.blur();
+  });
+});
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } });
 }, { threshold: .1 });
