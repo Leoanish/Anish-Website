@@ -9,7 +9,7 @@ const MAX_QUESTION_LENGTH = 500;
 const profileKnowledge = [
   {
     topics: ["who is", "who's", "about anish", "about him", "tell me about", "introduce", "introduction", "summary", "summarize anish", "overview", "background", "bio"],
-    answer: "Anish Bhattarai is a Ph.D. student and Graduate Research Assistant in Crop and Soil Sciences at the University of Georgia. He is a precision agriculture researcher who combines agronomy, crop sensors, UAV LiDAR, satellite and weather data, spatial modeling, and software to turn field data into practical decisions. Originally trained in Nepal (B.Sc. in Agriculture, Chitwan), he has six peer-reviewed papers, thirteen awards and honors, and has built tools such as GeoSampler and Plant Pixel Extractor."
+    answer: "Anish Bhattarai is a Ph.D. student and Graduate Research Assistant in Crop and Soil Sciences at the University of Georgia. He is a precision agriculture researcher who combines agronomy, crop sensors, UAV LiDAR, satellite and weather data, spatial modeling, and software to turn field data into practical decisions. Originally trained in Nepal (B.Sc. in Agriculture, Chitwan), he has six peer-reviewed papers, fifteen awards and honors, and has built tools such as GeoSampler and Plant Pixel Extractor."
   },
   {
     topics: ["current research", "researching now", "weather", "prism", "daymet", "research"],
@@ -37,7 +37,7 @@ const profileKnowledge = [
   },
   {
     topics: ["award", "honor", "competition", "hackathon"],
-    answer: "The 2026 CV lists thirteen awards and honors. Recent highlights include second place with Team Georgia at the 2026 NxS Hackathon; first place in the 2025 Precision Agriculture Systems oral competition; first place in the 2025 Bayer graduate hackathon; and multiple research presentation awards from 2023–2025."
+    answer: "Anish has fifteen awards and honors. Recent highlights include first place in the Precision Agriculture Systems Ph.D. oral competition at CANVAS 2026 in Portland, Oregon (presenting GeoSampler); second place in the CANVAS 2026 Student Hackathon; second place with Team Georgia at the 2026 NxS Hackathon; first place in the 2025 Precision Agriculture Systems oral competition; first place in the 2025 Bayer graduate hackathon; and multiple research presentation awards from 2023–2025."
   },
   {
     topics: ["geosampler", "dashboard", "app"],
