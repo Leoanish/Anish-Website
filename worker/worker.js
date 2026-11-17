@@ -12,15 +12,45 @@
  *   KNOWLEDGE_URL    (Text, optional)    where to load the profile from (defaults to the website's knowledge.md)
  */
 
-// Tried in order; if one is unavailable or busy the next is used.
-const DEFAULT_MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "llama-3.3-70b-versatile", "llama-3.1-8b-instant"];
+// Tried in order. Each model has its own free-tier limit, so a busy model hands over to the next.
+// Only models your Groq account actually offers are used (checked once an hour).
+const PREFERRED_MODELS = [
+  "openai/gpt-oss-120b",
+  "llama-3.3-70b-versatile",
+  "openai/gpt-oss-20b",
+  "moonshotai/kimi-k2-instruct-0905",
+  "meta-llama/llama-4-maverick-17b-128e-instruct",
+  "meta-llama/llama-4-scout-17b-16e-instruct",
+  "qwen/qwen3-32b",
+  "llama-3.1-8b-instant"
+];
+const MODEL_LIST_TTL_MS = 60 * 60 * 1000;
+let cachedModels = { list: null, loadedAt: 0 };
+
+async function availableModels(env) {
+  const wanted = env.GROQ_MODEL ? [env.GROQ_MODEL, ...PREFERRED_MODELS.filter(m => m !== env.GROQ_MODEL)] : PREFERRED_MODELS;
+  const now = Date.now();
+  if (!cachedModels.list || now - cachedModels.loadedAt > MODEL_LIST_TTL_MS) {
+    try {
+      const response = await fetch("https://api.groq.com/openai/v1/models", { headers: { "Authorization": `Bearer ${env.GROQ_API_KEY}` } });
+      if (response.ok) {
+        const ids = new Set(((await response.json()).data || []).filter(m => m.active !== false).map(m => m.id));
+        cachedModels = { list: ids.size ? ids : null, loadedAt: now };
+      }
+    } catch (error) {
+      console.log(`Model list failed: ${error.message}`);
+    }
+  }
+  const usable = cachedModels.list ? wanted.filter(m => cachedModels.list.has(m)) : wanted;
+  return usable.length ? usable : wanted;
+}
 const DEFAULT_ORIGINS = [
   "https://leoanish.github.io",
   "http://localhost:4173",
   "http://127.0.0.1:4173"
 ];
 
-const MAX_MESSAGES = 12;        // conversation turns kept per request
+const MAX_MESSAGES = 8;         // conversation turns kept per request
 const MAX_CHARS = 1000;         // per message
 const RATE_LIMIT = 60;          // requests… (generous: campus Wi-Fi shares one address)
 const RATE_WINDOW_MS = 10 * 60 * 1000; // …per 10 minutes per visitor
@@ -182,11 +212,100 @@ async function loadKnowledge(env) {
   return cachedKnowledge.text || BACKUP_KNOWLEDGE;
 }
 
+// ---------------------------------------------------------------------------
+// Send only the relevant parts of the profile with each question.
+// Groq's free plan allows a limited number of tokens per minute; sending the whole
+// profile every time let only one or two questions through per minute.
+// ---------------------------------------------------------------------------
+const CONTEXT_BUDGET = 5200;          // characters of profile per question (about 1,300 tokens)
+const ALWAYS_SECTIONS = ["who is anish", "contact and links"];
+const STOPWORDS = new Set("a an and are about any can could did do does for from give has have he her his how i in is it its me more my of on or please show so tell that the their them there these this to was what when where which who why will with you your anish bhattarai".split(" "));
+const TOPIC_HINTS = [
+  [/\b(paper|papers|publication|publications|published|publish|journal|article|doi|author|co-?author|cite|citation|finding|findings|find|found)\b/, ["peer-reviewed publications"]],
+  [/\b(award|awards|honou?rs?|won|win|prize|competition|hackathon|scholarship)\b/, ["awards and honors", "funding"]],
+  [/\b(tool|tools|app|apps|dashboard|dashboards|software|plugin|package|github|code|repo|repositories|try|online|live|demo|built)\b/, ["research and software projects"]],
+  [/\b(research|phd|doctoral|thesis|dissertation|working on|currently|focus)\b/, ["research overview", "current role"]],
+  [/\b(education|degree|school|university|college|gpa|graduate|bachelor|master|nepal|chitwan|journey|background)\b/, ["academic journey", "current role"]],
+  [/\b(skill|skills|programming|languages?|python|qgis|expertise|good at)\b/, ["skills"]],
+  [/\b(outreach|extension|field day|speaker|talks?|presentations?|farmers|tour)\b/, ["extension and outreach"]],
+  [/\b(leader|leadership|club|association|president|secretary|community|volunteer)\b/, ["leadership and community", "extension and outreach"]],
+  [/\b(what is|what are|meaning|mean|explain|define|simple|simply|beginner)\b/, ["plain-language glossary"]],
+  [/\b(advisor|adviser|supervisor|committee|hobby|hobbies|sports?|team|personal|age|family|phone|address|salary|married)\b/, ["not published"]],
+  [/\b(contact|email|reach|hire|hiring|collaborat\w*|linkedin|scholar|cv|resume|website)\b/, ["contact and links"]]
+];
+
+function words(text) {
+  return (text.toLowerCase().match(/[a-z0-9×][a-z0-9×.-]*/g) || [])
+    .map(w => w.replace(/[.-]+$/, ""))
+    .filter(w => w.length > 2 && !STOPWORDS.has(w));
+}
+
+// Split the profile into sections, and the long sections into one chunk per numbered item.
+function chunkKnowledge(text) {
+  const chunks = [];
+  text.split(/\n(?=## )/).forEach(section => {
+    if (!section.startsWith("## ")) return;
+    const lines = section.split("\n");
+    const heading = lines[0].replace(/^#+\s*/, "").trim();
+    const key = heading.toLowerCase();
+    const body = lines.slice(1).join("\n").trim();
+    const items = body.split(/\n(?=\d+\. )/);
+    if (body.length > 1600 && items.length > 2) {
+      items.forEach(item => chunks.push({ key, heading, text: item.trim() }));
+    } else {
+      chunks.push({ key, heading, text: body });
+    }
+  });
+  return chunks;
+}
+
+function selectContext(knowledge, messages) {
+  const chunks = chunkKnowledge(knowledge);
+  if (!chunks.length) return knowledge.slice(0, CONTEXT_BUDGET);
+  const recentUser = messages.filter(m => m.role === "user").slice(-2).map(m => m.content).join(" ");
+  const lastAssistant = [...messages].reverse().find(m => m.role === "assistant");
+  const query = (recentUser + " " + (lastAssistant ? lastAssistant.content.slice(0, 300) : "")).toLowerCase();
+  const queryWords = new Set(words(query));
+  const hinted = [];
+  TOPIC_HINTS.forEach(([pattern, keys]) => { if (pattern.test(query)) hinted.push(...keys); });
+
+  const scored = chunks.map(chunk => {
+    if (ALWAYS_SECTIONS.some(k => chunk.key.startsWith(k))) return { chunk, score: 1000 };
+    let score = 0;
+    const chunkWords = new Set(words(chunk.heading + " " + chunk.text));
+    queryWords.forEach(w => { if (chunkWords.has(w)) score += w.length > 5 ? 3 : 2; });
+    if (hinted.some(k => chunk.key.startsWith(k))) score += 6;
+    return { chunk, score };
+  });
+
+  // Nothing specific matched: give a broad overview instead.
+  if (!scored.some(s => s.score > 0 && s.score < 1000)) {
+    scored.forEach(s => { if (/^(research overview|academic journey|skills)/.test(s.chunk.key)) s.score = 5; });
+  }
+
+  const picked = [];
+  let used = 0;
+  scored.filter(s => s.score > 0).sort((a, b) => b.score - a.score).forEach(({ chunk }) => {
+    const size = chunk.text.length + chunk.heading.length + 8;
+    if (used + size > CONTEXT_BUDGET && used > 0) return;
+    picked.push(chunk);
+    used += size;
+  });
+  picked.sort((a, b) => chunks.indexOf(a) - chunks.indexOf(b));   // keep the profile's own order
+  let out = "";
+  let lastHeading = "";
+  picked.forEach(chunk => {
+    if (chunk.heading !== lastHeading) { out += `\n## ${chunk.heading}\n`; lastHeading = chunk.heading; }
+    out += chunk.text + "\n";
+  });
+  return out.trim();
+}
+
 function systemPrompt(knowledge) {
   return `You are "Ask Anish", the AI guide on Anish Bhattarai's portfolio website. Visitors — recruiters, professors, students, farmers, collaborators — ask you about Anish so they don't have to read every section themselves. Your job is to give them a real, useful answer.
 
 How to answer:
-- Answer every question about Anish directly and confidently from the profile below. Combine facts from different sections, summarize, compare, count, and explain in your own words. Broad questions ("Who is Anish?", "Why is his work important?", "Is he a good fit for a data-science role?", "What makes him stand out?") deserve a thoughtful answer built from the profile — never reply that you lack information when the profile covers the topic.
+- The profile below is an excerpt chosen for this question; other parts of his record exist on the site. Answer every question about Anish directly and confidently from it. Combine facts from different sections, summarize, compare, count, and explain in your own words. Broad questions ("Who is Anish?", "Why is his work important?", "Is he a good fit for a data-science role?", "What makes him stand out?") deserve a thoughtful answer built from the profile — never reply that you lack information when the profile covers the topic.
 - You may draw reasonable conclusions from the facts (for example, strengths shown by his awards and tools) as long as you make clear they follow from his record.
 - Never invent facts: no made-up dates, numbers, findings, co-authors, employers, opinions, or personal details. If a specific detail truly isn't in the profile, say so in one sentence, share the closest related information you do have, and point to his email (ab68010@uga.edu), CV, or Google Scholar.
 - Speak about Anish in the third person ("Anish", "he"). You are his guide, not Anish himself.
@@ -237,7 +356,7 @@ function cleanMessages(raw) {
   if (!Array.isArray(raw)) return null;
   const messages = raw
     .filter(m => m && (m.role === "user" || m.role === "assistant") && typeof m.content === "string" && m.content.trim())
-    .map(m => ({ role: m.role, content: m.content.trim().slice(0, MAX_CHARS) }))
+    .map(m => ({ role: m.role, content: m.content.trim().slice(0, m.role === "assistant" ? 700 : MAX_CHARS) }))
     .slice(-MAX_MESSAGES);
   if (!messages.length || messages[messages.length - 1].role !== "user") return null;
   return messages;
@@ -253,7 +372,8 @@ export default {
       return new Response(null, { status: allowed ? 204 : 403, headers: cors });
     }
     if (request.method === "GET") {
-      return json({ ok: true, service: "Ask Anish chat proxy", keyConfigured: Boolean(env.GROQ_API_KEY) }, 200);
+      const models = env.GROQ_API_KEY ? await availableModels(env) : [];
+      return json({ ok: true, service: "Ask Anish chat proxy", version: 3, keyConfigured: Boolean(env.GROQ_API_KEY), models }, 200);
     }
     if (request.method !== "POST") return json({ error: "Method not allowed." }, 405, cors);
     if (!allowed) return json({ error: "This site is not allowed to use the chat." }, 403);
@@ -269,9 +389,11 @@ export default {
     const messages = cleanMessages(body && body.messages);
     if (!messages) return json({ error: "Invalid request." }, 400, cors);
 
-    const models = env.GROQ_MODEL ? [env.GROQ_MODEL, ...DEFAULT_MODELS.filter(m => m !== env.GROQ_MODEL)] : DEFAULT_MODELS;
-    const prompt = systemPrompt(await loadKnowledge(env));
+    const models = await availableModels(env);
+    const prompt = systemPrompt(selectContext(await loadKnowledge(env), messages));
     let lastStatus = 502;
+    let sawBusy = false;
+    let retryAfter = "";
     for (const model of models) {
       const upstream = await fetch("https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",
@@ -280,7 +402,7 @@ export default {
           model,
           stream: true,
           temperature: 0.3,
-          max_completion_tokens: 1100,
+          max_completion_tokens: 800,
           ...(model.startsWith("openai/gpt-oss") ? { reasoning_effort: "low" } : {}),
           messages: [{ role: "system", content: prompt }, ...messages]
         })
@@ -293,17 +415,21 @@ export default {
       }
       lastStatus = upstream.status;
       if (upstream.status === 401) break; // bad API key: no other model will work either
+      if (upstream.status === 429 || upstream.status === 413 || upstream.status === 503) {
+        sawBusy = true;
+        retryAfter = upstream.headers.get("retry-after") || retryAfter;
+      }
       console.log(`Groq ${model} failed: ${upstream.status} ${(await upstream.text()).slice(0, 300)}`);
     }
 
-    const busy = lastStatus === 429;
+    const busy = sawBusy || lastStatus === 429;
     return json(
       {
         error: busy ? "The assistant is busy right now. Please try again in a minute." : "The assistant is unavailable right now.",
-        detail: lastStatus === 401 ? "Groq rejected the API key (401). Check the GROQ_API_KEY secret." : `Groq returned ${lastStatus}.`
+        detail: lastStatus === 401 ? "Groq rejected the API key (401). Check the GROQ_API_KEY secret." : `Groq returned ${lastStatus}${busy ? " (rate limit)" : ""}.`
       },
       busy ? 429 : 502,
-      cors
+      { ...cors, ...(retryAfter ? { "Retry-After": retryAfter } : {}) }
     );
   }
 };
