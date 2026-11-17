@@ -273,6 +273,11 @@ img { max-width: 100%; display: block; }
 .message-body p + p, .message-body ul + p, .message-body p + ul { margin-top: 8px; }
 .message-body ul { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.55; }
 .message-body li + li { margin-top: 4px; }
+.message-table { margin: 8px 0; overflow-x: auto; }
+.message-table table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.4; }
+.message-table th, .message-table td { padding: 6px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.message-table th { color: #32705f; font-weight: 700; }
+.message-body p + .message-table, .message-table + p { margin-top: 8px; }
 .message-body a { color: #1d6b57; font-weight: 600; overflow-wrap: anywhere; }
 .message-body.thinking p { color: var(--muted); animation: thinking-pulse 1.2s ease-in-out infinite; }
 @keyframes thinking-pulse { 50% { opacity: .45; } }

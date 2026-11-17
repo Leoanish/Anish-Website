@@ -132,9 +132,33 @@ function appendInline(parent, text) {
 function renderRichText(container, text) {
   container.replaceChildren();
   let list = null;
+  let table = null;
   text.split(/\n+/).forEach(rawLine => {
     const line = rawLine.trim();
     if (!line) return;
+    // Markdown tables: | a | b |
+    if (/^\|.*\|$/.test(line)) {
+      list = null;
+      if (/^\|[\s:|-]+\|$/.test(line)) return;   // separator row
+      const cells = line.slice(1, -1).split("|").map(cell => cell.trim());
+      const isHeader = !table;
+      if (!table) {
+        const wrap = document.createElement("div");
+        wrap.className = "message-table";
+        table = document.createElement("table");
+        wrap.append(table);
+        container.append(wrap);
+      }
+      const row = document.createElement("tr");
+      cells.forEach(cell => {
+        const el = document.createElement(isHeader ? "th" : "td");
+        appendInline(el, cell);
+        row.append(el);
+      });
+      table.append(row);
+      return;
+    }
+    table = null;
     const bullet = line.match(/^(?:[-*•]|\d+[.)])\s+(.*)$/);
     if (bullet) {
       if (!list) { list = document.createElement("ul"); container.append(list); }
