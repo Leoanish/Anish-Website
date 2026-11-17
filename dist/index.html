@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23071b18'/%3E%3Cpath d='M16 47 29 15h7l13 32h-8l-2.7-7H26.5l-2.6 7Zm13-14h7l-3.5-10Z' fill='%23d6ff6b'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
   <svg class="icon-library" aria-hidden="true">
@@ -245,11 +245,11 @@
         <div class="section-heading reveal">
           <p class="eyebrow">Tools &amp; dashboards</p>
           <h2 id="tools-title">Open tools you can try right now.</h2>
-          <p>Research is most useful when someone else can run it. These apps, plugins, and workflows are public — point at a tool to see how it works, then open it or read the code.</p>
+          <p>Research is most useful when someone else can run it. These apps, plugins, and workflows are public — point at any tool to open it here, then try it or read the code.</p>
         </div>
         <div class="tool-strip">
-          <article class="tool-panel active" data-tool="ppe">
-            <button class="tool-tab" type="button" aria-expanded="true" aria-controls="tool-ppe-content">
+          <article class="tool-panel" data-tool="ppe">
+            <button class="tool-tab" type="button" aria-expanded="false" aria-controls="tool-ppe-content">
               <svg class="tool-tab-icon" aria-hidden="true"><use href="#icon-scan"/></svg>
               <span class="tool-tab-name">Plant Pixel Extractor</span>
               <span class="tool-tab-kind">QGIS plugin</span>
@@ -261,8 +261,8 @@
                 <div class="tool-body">
                   <p class="tool-kicker">QGIS plugin &amp; package · v3.8</p>
                   <h3>Plant Pixel Extractor (PPE)</h3>
-                  <p class="tool-desc">Separates plant pixels from soil in drone orthomosaics with no training data. PPE ranks the vegetation indices an image allows, lets twelve automatic thresholds vote, removes shadows and algae, and exports canopy cover and plant-pixel statistics for every plot.</p>
-                  <dl class="tool-facts"><div class="tool-fact-0"><dt>How it works</dt><dd>Ranks the vegetation indices your image supports, splits the best three with four automatic thresholds (Otsu, CDF knee, k-means, multi-Otsu), and lets the twelve results vote. Guards then remove shadows, algae on wet soil, and grey objects. A live slider previews the mask before it is written.</dd></div><div class="tool-fact-1"><dt>Made for</dt><dd>Researchers who need canopy cover and plant-only statistics per plot from drone imagery, without labelling training data.</dd></div><div class="tool-fact-2"><dt>Get started</dt><dd>Needs QGIS 3.28 or newer. Download the plugin ZIP from the GitHub repository and use “Install from ZIP” in the QGIS plugin manager.</dd></div></dl>
+                  <p class="tool-desc">Separates plants from soil in drone images, with no training data.</p>
+                  <ul class="tool-points"><li>Works with RGB, multispectral, and hyperspectral images</li><li>Canopy cover and statistics for every plot</li><li>Free QGIS plugin, version 3.8</li></ul>
                   <div class="tool-links"><a class="primary" href="https://github.com/Leoanish/ppe-qgis" target="_blank" rel="noreferrer">View plugin on GitHub <span aria-hidden="true">↗</span></a></div>
                 </div>
               </div>
@@ -281,15 +281,15 @@
                 <div class="tool-body">
                   <p class="tool-kicker">Live dashboard · R Shiny</p>
                   <h3>GeoSampler</h3>
-                  <p class="tool-desc">Turns free Sentinel-2 imagery and elevation data into statistically defensible soil and plant sampling plans, with export-ready GPS points and a PDF field plan.</p>
-                  <dl class="tool-facts"><div class="tool-fact-0"><dt>How it works</dt><dd>Draw or upload a field boundary. The app retrieves Sentinel-2 imagery and elevation, computes vegetation indices and terrain layers, compares sampling methods such as cLHS, and places the sample points.</dd></div><div class="tool-fact-1"><dt>Made for</dt><dd>Agronomists, ecologists, and field scientists planning soil or plant sampling.</dd></div><div class="tool-fact-2"><dt>Get started</dt><dd>Open the live dashboard in your browser. No GIS software, coding, or account needed.</dd></div></dl>
+                  <p class="tool-desc">Turns free satellite imagery into a sampling plan you can take to the field.</p>
+                  <ul class="tool-points"><li>Draw or upload your field boundary</li><li>Places points across the field’s real variability</li><li>Exports GPS points and a PDF field plan</li></ul>
                   <div class="tool-links"><a class="primary" href="https://recuga.shinyapps.io/geosampler/" target="_blank" rel="noreferrer">Open dashboard <span aria-hidden="true">↗</span></a><a class="" href="https://github.com/Leoanish/geosampler" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
                 </div>
               </div>
             </div>
           </article>
-          <article class="tool-panel" data-tool="fieldrank">
-            <button class="tool-tab" type="button" aria-expanded="false" aria-controls="tool-fieldrank-content">
+          <article class="tool-panel active" data-tool="fieldrank">
+            <button class="tool-tab" type="button" aria-expanded="true" aria-controls="tool-fieldrank-content">
               <svg class="tool-tab-icon" aria-hidden="true"><use href="#icon-leaf"/></svg>
               <span class="tool-tab-name">FieldRank</span>
               <span class="tool-tab-kind live">Live app</span>
@@ -301,8 +301,8 @@
                 <div class="tool-body">
                   <p class="tool-kicker">Live app · Streamlit</p>
                   <h3>FieldRank</h3>
-                  <p class="tool-desc">“Should I scout my field?” Compares a Georgia corn, cotton, peanut, or soybean field with similar fields planted nearby at the same time, using free satellite imagery.</p>
-                  <dl class="tool-facts"><div class="tool-fact-0"><dt>How it works</dt><dd>Finds fields of the same crop within a search radius that were planted within about ten days of yours, then scores your field against the best of them with a sufficiency index. The answer is scout, keep an eye on it, or on track.</dd></div><div class="tool-fact-1"><dt>Made for</dt><dd>Georgia growers, crop consultants, and Extension agents deciding where to walk first.</dd></div><div class="tool-fact-2"><dt>Get started</dt><dd>Free with no sign-in. Click your field on the map or upload a boundary file.</dd></div></dl>
+                  <p class="tool-desc">Answers one question for a grower: should I scout this field?</p>
+                  <ul class="tool-points"><li>Compares your field with similar fields planted nearby</li><li>Uses free Sentinel-2 and Landsat imagery</li><li>Georgia corn, cotton, peanut, and soybean</li></ul>
                   <div class="tool-links"><a class="primary" href="https://fieldrank.streamlit.app" target="_blank" rel="noreferrer">Open app <span aria-hidden="true">↗</span></a><a class="" href="https://github.com/Leoanish/fieldrank" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
                 </div>
               </div>
@@ -321,8 +321,8 @@
                 <div class="tool-body">
                   <p class="tool-kicker">Live dashboard · Open data</p>
                   <h3>Cotton × ENSO Explorer</h3>
-                  <p class="tool-desc">Links 75 years of El Niño and La Niña events to cotton yields in the United States, Brazil, India, and Argentina — from country down to county — with each place measured against its own long-term trend. Includes an “Ask the data” chat.</p>
-                  <dl class="tool-facts"><div class="tool-fact-0"><dt>How it works</dt><dd>El Niño and La Niña events from NOAA’s Oceanic Niño Index are matched to each country’s growing season. Every place’s yields are compared with its own long-term trend, so gains from new varieties and technology are not mistaken for climate.</dd></div><div class="tool-fact-1"><dt>Made for</dt><dd>Researchers, analysts, and anyone curious how a Pacific climate cycle moves cotton yields.</dd></div><div class="tool-fact-2"><dt>Get started</dt><dd>Open the dashboard and pick a country. Maps drill down to county level, and links save the exact view you are looking at.</dd></div></dl>
+                  <p class="tool-desc">Shows how El Niño and La Niña shift cotton yields, down to the county.</p>
+                  <ul class="tool-points"><li>75 years of climate events across 4 countries</li><li>Each place measured against its own yield trend</li><li>Built-in “Ask the data” chat</li></ul>
                   <div class="tool-links"><a class="primary" href="https://leoanish.github.io/cotton-enso-explorer/" target="_blank" rel="noreferrer">Open dashboard <span aria-hidden="true">↗</span></a><a class="" href="https://github.com/Leoanish/cotton-enso-explorer" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
                 </div>
               </div>
@@ -341,8 +341,8 @@
                 <div class="tool-body">
                   <p class="tool-kicker">Hackathon project · CANVAS 2026</p>
                   <h3>Root Cause</h3>
-                  <p class="tool-desc">A multi-regional corn nitrogen recommender for the Midwest: drop a pin, pull open soil, terrain, and weather data, and get the most profitable N rate and whether to split it. Built with teammates from UNL and NDSU.</p>
-                  <dl class="tool-facts"><div class="tool-fact-0"><dt>How it works</dt><dd>A random-forest model learns how corn yield responds to nitrogen rate from public Midwest nitrogen trials (49 site-years across 8 states). Prices are applied afterwards, so one model works at any corn or fertilizer price.</dd></div><div class="tool-fact-1"><dt>Made for</dt><dd>A hackathon prototype for Midwest corn growers and advisors choosing a nitrogen rate before the season.</dd></div><div class="tool-fact-2"><dt>Get started</dt><dd>The code and dashboard are on GitHub and can be run locally.</dd></div></dl>
+                  <p class="tool-desc">Recommends the most profitable nitrogen rate for a Midwest corn field.</p>
+                  <ul class="tool-points"><li>Drop a pin; soil, terrain, and weather load automatically</li><li>Says whether splitting the application pays</li><li>CANVAS 2026 hackathon, with teammates from UNL and NDSU</li></ul>
                   <div class="tool-links"><a class="primary" href="https://github.com/Leoanish/CANVAS_2026" target="_blank" rel="noreferrer">View on GitHub <span aria-hidden="true">↗</span></a></div>
                 </div>
               </div>
@@ -361,8 +361,8 @@
                 <div class="tool-body">
                   <p class="tool-kicker">R workflow · Open code</p>
                   <h3>LiDAR Processing in R</h3>
-                  <p class="tool-desc">A step-by-step workflow for reading point clouds, classifying ground, building terrain and surface models, and deriving canopy height — the processing behind the UAV LiDAR research.</p>
-                  <dl class="tool-facts"><div class="tool-fact-0"><dt>How it works</dt><dd>Read .las or .laz point clouds, classify ground points, build a terrain model, normalize the cloud, build a surface model, rasterize, and derive canopy height.</dd></div><div class="tool-fact-1"><dt>Made for</dt><dd>Researchers and students processing UAV LiDAR data in R.</dd></div><div class="tool-fact-2"><dt>Get started</dt><dd>Clone the repository and follow the workflow step by step.</dd></div></dl>
+                  <p class="tool-desc">The R workflow behind my UAV LiDAR research, step by step.</p>
+                  <ul class="tool-points"><li>Classifies ground and builds terrain models</li><li>Derives canopy height from point clouds</li><li>Open code you can reuse</li></ul>
                   <div class="tool-links"><a class="primary" href="https://github.com/Leoanish/Lidar-Processing" target="_blank" rel="noreferrer">View on GitHub <span aria-hidden="true">↗</span></a></div>
                 </div>
               </div>
@@ -532,6 +532,6 @@
     <p class="agent-disclaimer">AI-generated from Anish’s public CV and publications. It can make mistakes — check the CV for anything important.</p>
   </aside>
 
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>
