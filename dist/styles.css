@@ -164,6 +164,33 @@ img { max-width: 100%; display: block; }
 .cv-item h3 { margin: 5px 0 2px; font-family: var(--serif); font-size: 24px; font-weight: 500; line-height: 1.2; }
 .cv-item p { margin: 4px 0 0; color: var(--muted); }
 .cv-item > a { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; text-decoration: none; }
+.tools-section { padding-block: clamp(96px, 11vw, 156px); background: var(--paper-2); }
+.tool-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.tool-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: #fbfaf5; box-shadow: 0 12px 40px rgba(7,27,24,.06); transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease; }
+.tool-card:hover { transform: translateY(-4px); box-shadow: 0 22px 60px rgba(7,27,24,.13); }
+.tool-card.wide { grid-column: span 2; flex-direction: row; }
+.tool-visual { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--forest); }
+.tool-card.wide .tool-visual { flex: 1.3; aspect-ratio: auto; min-height: 320px; }
+.tool-card.wide .tool-visual svg { padding: 4px; }
+.tool-visual svg, .tool-visual img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+.tool-chip { position: absolute; top: 12px; right: 12px; padding: 3px 8px; border-radius: 999px; background: rgba(4,17,15,.72); color: #c9d6d1; font-family: var(--mono); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; backdrop-filter: blur(4px); }
+.tool-body { display: flex; flex: 1; flex-direction: column; padding: 26px 26px 24px; }
+.tool-kicker { margin: 0 0 8px; color: #32705f; font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.tool-body h3 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(26px, 2.4vw, 34px); font-weight: 500; letter-spacing: -.02em; line-height: 1.05; }
+.tool-body > p:not(.tool-kicker) { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.6; }
+.tool-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 18px 0 20px; }
+.tool-tags span { padding: 4px 9px; border-radius: 999px; background: #e7e4d8; font-family: var(--mono); font-size: 10px; }
+.tool-links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: auto; }
+.tool-links a { color: var(--ink); font-size: 14px; font-weight: 600; text-underline-offset: 4px; }
+.tool-links a.primary { padding: 10px 16px; border-radius: 999px; background: var(--forest); color: var(--paper); text-decoration: none; transition: background .25s ease; }
+.tool-links a.primary:hover { background: #14463b; }
+.tool-more { justify-content: center; background: var(--forest); color: var(--paper); border-color: transparent; }
+.tool-more .tool-kicker { color: var(--acid); }
+.tool-more .tool-body { flex: 0; }
+.tool-more .tool-body > p:not(.tool-kicker) { color: #aebcb7; margin-bottom: 24px; }
+.tool-more .tool-links a.primary { background: var(--acid); color: var(--forest); }
+@media (max-width: 1080px) { .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tool-card.wide { grid-column: 1 / -1; } }
+@media (max-width: 700px) { .tool-grid { grid-template-columns: 1fr; } .tool-card.wide { flex-direction: column; } .tool-card.wide .tool-visual { flex: none; min-height: 0; aspect-ratio: 16 / 10; } }
 .cv-paper { position: relative; min-height: 132px; overflow: hidden; border-radius: 12px; background-position: center; background-size: cover; box-shadow: 0 12px 35px rgba(7,27,24,.12); }
 .cv-paper::after { content: ""; position: absolute; inset: 0; background: linear-gradient(145deg, rgba(3,18,15,.08), rgba(3,18,15,.68)); }
 .cv-paper span { position: absolute; right: 11px; bottom: 8px; z-index: 1; color: white; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; }
