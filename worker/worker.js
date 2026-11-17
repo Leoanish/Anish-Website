@@ -7,11 +7,12 @@
  *
  * Settings (Cloudflare dashboard → Worker → Settings → Variables and Secrets):
  *   GROQ_API_KEY     (Secret, required)  your key from https://console.groq.com/keys
- *   GROQ_MODEL       (Text, optional)    defaults to llama-3.3-70b-versatile
+ *   GROQ_MODEL       (Text, optional)    defaults to openai/gpt-oss-120b
  *   ALLOWED_ORIGINS  (Text, optional)    comma-separated list of sites allowed to call this
  */
 
-const DEFAULT_MODELS = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"];
+// Tried in order; if one is unavailable or busy the next is used.
+const DEFAULT_MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "llama-3.3-70b-versatile", "llama-3.1-8b-instant"];
 const DEFAULT_ORIGINS = [
   "https://leoanish.github.io",
   "http://localhost:4173",
@@ -222,7 +223,8 @@ export default {
           model,
           stream: true,
           temperature: 0.3,
-          max_tokens: 600,
+          max_completion_tokens: 1100,
+          ...(model.startsWith("openai/gpt-oss") ? { reasoning_effort: "low" } : {}),
           messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages]
         })
       });
@@ -233,12 +235,16 @@ export default {
         });
       }
       lastStatus = upstream.status;
+      if (upstream.status === 401) break; // bad API key: no other model will work either
       console.log(`Groq ${model} failed: ${upstream.status} ${(await upstream.text()).slice(0, 300)}`);
     }
 
     const busy = lastStatus === 429;
     return json(
-      { error: busy ? "The assistant is busy right now. Please try again in a minute." : "The assistant is unavailable right now." },
+      {
+        error: busy ? "The assistant is busy right now. Please try again in a minute." : "The assistant is unavailable right now.",
+        detail: lastStatus === 401 ? "Groq rejected the API key (401). Check the GROQ_API_KEY secret." : `Groq returned ${lastStatus}.`
+      },
       busy ? 429 : 502,
       cors
     );
