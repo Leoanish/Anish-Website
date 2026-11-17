@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Anish Bhattarai is a precision agriculture researcher building sensor, imagery, weather-data, and geospatial tools for field-scale decisions.">
   <meta name="theme-color" content="#071b18">
+  <link rel="canonical" href="https://leoanish.github.io/Anish-Website/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Anish Bhattarai — Precision agriculture researcher">
+  <meta property="og:description" content="Research, publications, and projects in precision agriculture — with an AI guide you can ask about any of it.">
+  <meta property="og:url" content="https://leoanish.github.io/Anish-Website/">
   <title>Anish Bhattarai — Precision agriculture researcher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -344,7 +349,7 @@
       <div>
         <p class="eyebrow">A conversational portfolio</p>
         <h2 id="agent-invite-title">Don’t hunt through pages. Ask.</h2>
-        <p>The portfolio guide answers from Anish’s curated CV and project record. Try a question about research, publications, skills, awards, or education.</p>
+        <p>An AI guide answers from Anish’s CV, publications, and project record. Ask about his research, what a paper found, his skills, awards, or education — in your own words.</p>
       </div>
       <button type="button" class="agent-launch" data-open-agent><span>Open Ask Anish</span><b aria-hidden="true">A</b></button>
     </section>
@@ -367,27 +372,30 @@
   <div class="agent-backdrop" data-close-agent hidden></div>
   <aside class="agent-panel" id="agent-panel" aria-hidden="true" aria-labelledby="agent-title">
     <header class="agent-header">
-      <div><span class="agent-status"><i></i> CV knowledge active</span><h2 id="agent-title">Ask Anish</h2></div>
+      <div><span class="agent-status"><i></i> AI guide · online</span><h2 id="agent-title">Ask Anish</h2></div>
       <button type="button" class="agent-close" data-close-agent aria-label="Close Ask Anish">×</button>
     </header>
-    <div class="agent-context"><span>Grounded in</span><b>2026 CV</b><b>Selected projects</b></div>
+    <div class="agent-context"><span>Grounded in</span><b>2026 CV</b><b>Publications</b><b>Projects</b><b>Awards</b></div>
     <div class="chat-log" id="chat-log" aria-live="polite">
       <div class="message assistant">
-        <span class="message-label">Portfolio guide</span>
-        <p>Hi — I can help you explore Anish’s research and experience. What would you like to know?</p>
+        <span class="message-label">Ask Anish</span>
+        <div class="message-body"><p>Hi — I’m an AI guide to Anish’s work. Ask me anything about his research, papers, projects, awards, or background, and I’ll answer from his public record.</p></div>
       </div>
       <div class="suggestion-row" aria-label="Suggested questions">
+        <button type="button" data-question="Who is Anish, in a few sentences?">Who is Anish?</button>
         <button type="button" data-question="What is Anish researching now?">Current research</button>
+        <button type="button" data-question="List Anish's publications with links.">Publications</button>
+        <button type="button" data-question="What did the UAV LiDAR paper find?">LiDAR paper findings</button>
         <button type="button" data-question="What are Anish's technical skills?">Technical skills</button>
         <button type="button" data-question="Summarize Anish's awards.">Awards</button>
       </div>
     </div>
     <form class="agent-form" id="agent-form">
       <label class="sr-only" for="agent-input">Ask a question about Anish</label>
-      <textarea id="agent-input" rows="1" maxlength="280" placeholder="Ask about research, skills, publications…"></textarea>
+      <textarea id="agent-input" rows="1" maxlength="500" placeholder="Ask about research, papers, skills, awards…"></textarea>
       <button type="submit" aria-label="Send question">↑</button>
     </form>
-    <p class="agent-disclaimer">Answers use only the curated information on this site.</p>
+    <p class="agent-disclaimer">AI-generated from Anish’s public CV and publications. It can make mistakes — check the CV for anything important.</p>
   </aside>
 
   <script src="app.js"></script>
