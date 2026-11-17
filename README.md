@@ -41,7 +41,7 @@ A website's code is visible to everyone, so the Groq API key must never be place
 
 6. Commit and push. Until this is done, the chat still works but answers from short built-in notes instead of the AI.
 
-Optional Worker variables: `GROQ_MODEL` (default `llama-3.3-70b-versatile`) and `ALLOWED_ORIGINS` (comma-separated; default `https://leoanish.github.io`, needed only if the site moves to a custom domain).
+Optional Worker variables: `GROQ_MODEL` (default `openai/gpt-oss-120b`) and `ALLOWED_ORIGINS` (comma-separated; default `https://leoanish.github.io`, needed only if the site moves to a custom domain).
 
 ## Updating what the AI knows
 
