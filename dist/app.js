@@ -345,17 +345,32 @@ projectButtons.forEach(button => {
   });
 });
 
-document.querySelectorAll(".tool-toggle").forEach(button => {
-  button.addEventListener("click", () => {
-    const card = button.closest(".tool-card");
-    const open = !card.classList.contains("open");
-    document.querySelectorAll(".tool-card.open").forEach(other => {
-      other.classList.remove("open");
-      other.querySelector(".tool-toggle").setAttribute("aria-expanded", "false");
-    });
-    card.classList.toggle("open", open);
-    button.setAttribute("aria-expanded", String(open));
-    if (!open) button.blur();
+// Tools: one panel is open at a time. On wide screens pointing at a panel opens it;
+// everywhere, clicking or tapping its tab opens it (and closes it again on small screens).
+const toolPanels = [...document.querySelectorAll(".tool-panel")];
+const toolStripQuery = window.matchMedia("(min-width: 1180px)");
+let toolHoverTimer = null;
+
+function setActiveTool(panel) {
+  toolPanels.forEach(item => {
+    const active = item === panel;
+    item.classList.toggle("active", active);
+    item.querySelector(".tool-tab").setAttribute("aria-expanded", String(active));
+  });
+}
+
+toolPanels.forEach(panel => {
+  const tab = panel.querySelector(".tool-tab");
+  panel.addEventListener("mouseenter", () => {
+    if (!toolStripQuery.matches) return;
+    clearTimeout(toolHoverTimer);
+    toolHoverTimer = setTimeout(() => setActiveTool(panel), 90);
+  });
+  panel.addEventListener("mouseleave", () => clearTimeout(toolHoverTimer));
+  tab.addEventListener("focus", () => { if (toolStripQuery.matches) setActiveTool(panel); });
+  tab.addEventListener("click", () => {
+    const closing = !toolStripQuery.matches && panel.classList.contains("active");
+    setActiveTool(closing ? null : panel);
   });
 });
 
