@@ -12,7 +12,8 @@ A modern, responsive research portfolio for Anish Bhattarai, hosted on GitHub Pa
 - `dist/styles.css` — visual system, layouts, motion, and responsive behavior
 - `dist/app.js` — navigation, filters, and the Ask Anish chat (set `CHAT_ENDPOINT` at the top)
 - `dist/assets/` — portrait, research images, and downloadable CV
-- `worker/worker.js` — the chat proxy: holds the Groq API key and everything the AI knows about Anish
+- `dist/knowledge.md` — everything the AI knows about Anish (edit this to update the chat)
+- `worker/worker.js` — the chat proxy: holds the Groq API key and the AI's instructions
 - `.github/workflows/pages.yml` — publishes `dist/` to GitHub Pages on every push to `main`
 
 ## One-time setup
@@ -45,7 +46,9 @@ Optional Worker variables: `GROQ_MODEL` (default `openai/gpt-oss-120b`) and `ALL
 
 ## Updating what the AI knows
 
-Edit the `KNOWLEDGE` text near the top of `worker/worker.js` (new paper, award, project, hobbies), then paste the file into the Cloudflare Worker again and deploy. The AI is instructed to answer only from that text, so only put public information there.
+Edit `dist/knowledge.md` (new paper, award, project, hobbies) and push to `main`. The Worker reloads that file from the live site every few minutes, so the chat picks up the change on its own — no need to touch Cloudflare. The AI answers only from that file, so only put public information there.
+
+`worker/worker.js` holds a backup copy of the profile and the AI's instructions; it only needs re-pasting into Cloudflare when that file itself changes.
 
 Safeguards built into the Worker: only this website can call it, questions are length-limited, each visitor is limited to 20 questions per 10 minutes, and the AI declines off-topic requests.
 

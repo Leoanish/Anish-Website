@@ -8,6 +8,10 @@ const MAX_QUESTION_LENGTH = 500;
 // Built-in fallback answers, used only when the AI service is unavailable.
 const profileKnowledge = [
   {
+    topics: ["who is", "who's", "about anish", "about him", "tell me about", "introduce", "introduction", "summary", "summarize anish", "overview", "background", "bio"],
+    answer: "Anish Bhattarai is a Ph.D. student and Graduate Research Assistant in Crop and Soil Sciences at the University of Georgia. He is a precision agriculture researcher who combines agronomy, crop sensors, UAV LiDAR, satellite and weather data, spatial modeling, and software to turn field data into practical decisions. Originally trained in Nepal (B.Sc. in Agriculture, Chitwan), he has six peer-reviewed papers, thirteen awards and honors, and has built tools such as GeoSampler and Plant Pixel Extractor."
+  },
+  {
     topics: ["current research", "researching now", "weather", "prism", "daymet", "research"],
     answer: "Anish’s current research centers on two connected questions: sensor-based nitrogen management in cotton and whether weather data products are representative at field scale. He compares UGA weather stations with PRISM and Daymet using geostatistics and machine learning, testing how distance, topography, soil, land cover, and environmental conditions influence agreement in variables such as temperature and precipitation."
   },
@@ -98,7 +102,7 @@ function localAnswer(question) {
   });
   return bestScore > 0
     ? best.answer
-    : "I don’t have enough verified information to answer that yet. I can help with Anish’s education, current research, projects, publications, awards, technical skills, leadership, outreach, or contact details.";
+    : "The AI guide is temporarily offline, so I can only answer a few set topics right now: Anish’s background, education, current research, projects, publications, awards, technical skills, leadership, outreach, or contact details. Please try again in a moment, or open the full CV from the CV section.";
 }
 
 // Turns the assistant's light Markdown (bold, links, lists) into safe DOM nodes.
