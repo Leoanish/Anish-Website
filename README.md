@@ -50,7 +50,7 @@ Edit `dist/knowledge.md` (new paper, award, project, hobbies) and push to `main`
 
 `worker/worker.js` holds a backup copy of the profile and the AI's instructions; it only needs re-pasting into Cloudflare when that file itself changes.
 
-Safeguards built into the Worker: only this website can call it, questions are length-limited, each visitor is limited to 20 questions per 10 minutes, and the AI declines off-topic requests.
+Safeguards built into the Worker: only this website can call it, questions are length-limited, each network address is limited to 60 questions per 10 minutes, and the AI declines off-topic requests.
 
 ## Content sources
 
