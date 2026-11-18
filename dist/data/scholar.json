@@ -1,0 +1,249 @@
+{
+  "source": "Google Scholar",
+  "citations": 39,
+  "citations_recent": 39,
+  "recent_since": 2021,
+  "h_index": 4,
+  "i10_index": 1,
+  "publications": [
+    {
+      "title": "Comparative Evaluation of Kriging Models and Variogram Structures for Daily Climate Interpolation across Georgia, United States (2010–2024)",
+      "authors": "A Bhattarai, K Poudel, A Jakhar, AK Dhaliwal, LM Bastos",
+      "venue": "CANVAS 2026, 2026",
+      "year": 2026,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:4TOpqqG69KYC",
+      "type": "presentation"
+    },
+    {
+      "title": "CottonVaRx: A cotton variety recommender dashboard use case from Georgia, USA",
+      "authors": "GJ Scarpin, LC Hand, PM Roberts, A Bhattarai, LM Bastos",
+      "venue": "European Journal of Agronomy 177, 128090, 2026",
+      "year": 2026,
+      "cited_by": 1,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:ULOm3_A8WrAC",
+      "type": "journal"
+    },
+    {
+      "title": "Geosampler: A Comprehensive Geospatial Data Acquisition and Sampling Dashboard",
+      "authors": "A Bhattarai, K Poudel, A Jakhar, AK Dhaliwal, LM Bastos",
+      "venue": "CANVAS 2026, 2026",
+      "year": 2026,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:M3ejUd6NZC8C",
+      "type": "presentation"
+    },
+    {
+      "title": "Peanut yield and grade prediction in Georgia, USA: Integrating management, climate, and remote sensing data with explainable AI",
+      "authors": "GJ Scarpin, SB Studstill, WS Monfort, RS Tubbs, C Pilon, A Jakhar, ...",
+      "venue": "Computers and Electronics in Agriculture 241, 111270, 2026",
+      "year": 2026,
+      "cited_by": 4,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:3fE2CSJIrl8C",
+      "type": "journal"
+    },
+    {
+      "title": "Assessing Sensor-Based Variable Rate Nitrogen Recommendation from Proximal, Drone, and Satellite Platforms Under Variable Pre-Plant Nitrogen Strategies in Corn",
+      "authors": "A Jakhar, A Bhattarai, K Poudel, AK Dhaliwal, G Scarpin, LM Bastos",
+      "venue": "CANVAS 2025, 2025",
+      "year": 2025,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:MXK_kJrjxJIC",
+      "type": "presentation"
+    },
+    {
+      "title": "Blending Agronomy with Technology: Data-Driven Decision for Nitrogen Management in Cotton",
+      "authors": "A Bhattarai, G Scarpin, A Jakhar, K Poudel, AK Dhaliwal, WM Porter, ...",
+      "venue": "CANVAS 2025, 2025",
+      "year": 2025,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:Se3iqnhoufwC",
+      "type": "presentation"
+    },
+    {
+      "title": "Comparative Analysis of in-Season Nitrogen Rate Recommendation from Proximal and Remote Sensors",
+      "authors": "A Bhattarai, G Scarpin, A Jakhar, K Poudel, AK Dhaliwal, WM Porter, ...",
+      "venue": "CANVAS 2025, 2025",
+      "year": 2025,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:KlAtU1dfN6UC",
+      "type": "presentation"
+    },
+    {
+      "title": "Cotton lint yield and quality variability in Georgia, USA: Understanding genotypic and environmental interactions",
+      "authors": "GJ Scarpin, A Bhattarai, LC Hand, JL Snider, PM Roberts, LM Bastos",
+      "venue": "Field Crops Research 325, 109822, 2025",
+      "year": 2025,
+      "cited_by": 19,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:WF5omc3nYNoC",
+      "type": "journal"
+    },
+    {
+      "title": "Cotton Quality Response to Variable Rate and Fixed Nitrogen Application Strategies",
+      "authors": "A Bhattarai, G Scarpin, A Jakhar, K Poudel, AK Dhaliwal, WM Porter, ...",
+      "venue": "CANVAS 2025, 2025",
+      "year": 2025,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:5nxA0vEk-isC",
+      "type": "presentation"
+    },
+    {
+      "title": "Evaluating N2O Emissions from Biochar and Poultry Litter-Amended Corn-Soybean Fields",
+      "authors": "K Poudel, LM Bastos, A Bhattarai, A Jakhar, AK Dhaliwal, G Scarpin",
+      "venue": "CANVAS 2025, 2025",
+      "year": 2025,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:UebtZRa9Y70C",
+      "type": "presentation"
+    },
+    {
+      "title": "From Soil to Staple: Predicting Cotton Fiber Quality in Grower Fields Using Machine Learning",
+      "authors": "AK Dhaliwal, LM Bastos, G Scarpin, A Bhattarai, A Jakhar, K Jagadish",
+      "venue": "CANVAS 2025, 2025",
+      "year": 2025,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:hqOjcs7Dif8C",
+      "type": "presentation"
+    },
+    {
+      "title": "Identifying Environmental Yield Potential and Variety Responsiveness in the US Cotton Belt Using Four Decades of Multi-Location Data and Machine Learning",
+      "authors": "AK Dhaliwal, LM Bastos, G Scarpin, A Bhattarai, SVK Jagadish, A Jakhar, ...",
+      "venue": "CANVAS 2025, 2025",
+      "year": 2025,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:roLk4NBRz8UC",
+      "type": "presentation"
+    },
+    {
+      "title": "Optimizing UAV LiDAR Data Collection in Cotton Through Flight Settings and Data Processing Best Practices",
+      "authors": "A Bhattarai, GJ Scarpin, A Jakhar, W Porter, LC Hand, J Snider, ...",
+      "venue": "Preprints, 2025",
+      "year": 2025,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:ufrVoPGSRksC",
+      "type": "other"
+    },
+    {
+      "title": "Optimizing unmanned aerial vehicle LiDAR data collection in cotton through flight settings and data processing",
+      "authors": "A Bhattarai, GJ Scarpin, A Jakhar, W Porter, LC Hand, JL Snider, ...",
+      "venue": "Remote Sensing 17 (9), 1504, 2025",
+      "year": 2025,
+      "cited_by": 5,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:_FxGoFyzp5QC",
+      "type": "journal"
+    },
+    {
+      "title": "Predicting Yield Stability Classes Using Satellite Imagery",
+      "authors": "K Poudel, LM Bastos, A Bhattarai, A Jakhar, AK Dhaliwal, G Scarpin",
+      "venue": "CANVAS 2025, 2025",
+      "year": 2025,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:kNdYIx-mwKoC",
+      "type": "presentation"
+    },
+    {
+      "title": "Sensor-Based Side Dress Nitrogen Management Enhances Yield, Efficiency, and Profitability in Corn Under Varying Pre-Plant Strategies",
+      "authors": "A Jakhar, G Scarpin, K Poudel, AK Dhaliwal, A Bhattarai, LM Bastos",
+      "venue": "CANVAS 2025, 2025",
+      "year": 2025,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:8k81kl-MbHgC",
+      "type": "presentation"
+    },
+    {
+      "title": "Comparing Proximal and Remote Sensing Approaches to Nitrogen Management in Cotton",
+      "authors": "A Bhattarai, LM Bastos, A Jakhar, G Scarpin",
+      "venue": "ASA, CSSA, SSSA International Annual Meeting, 2024",
+      "year": 2024,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:LkGwnXOMwfcC",
+      "type": "presentation"
+    },
+    {
+      "title": "Sensor-Based Nitrogen Management in Cotton Maintains Yield and Improves Profit and Use Efficiency",
+      "authors": "A Bhattarai, LM Bastos, A Jakhar, G Scarpin",
+      "venue": "ASA, CSSA, SSSA International Annual Meeting, 2024",
+      "year": 2024,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:9yKSN-GCB0IC",
+      "type": "presentation"
+    },
+    {
+      "title": "Enhancing Nitrogen Management for High-Yielding Corn: Updated Recommendations and Sensor Technology Assessment",
+      "authors": "A Jakhar, RT Roth, A Bhattarai, LM Bastos",
+      "venue": "ASA, CSSA, SSSA International Annual Meeting, 2023",
+      "year": 2023,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:YsMSGLbcyi4C",
+      "type": "presentation"
+    },
+    {
+      "title": "Side-Dress Nitrogen Rate and Sensor-Based Variable Management in Cotton",
+      "authors": "A Bhattarai, LM Bastos",
+      "venue": "ASA, CSSA, SSSA International Annual Meeting, 2023",
+      "year": 2023,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:2osOgNQ5qMEC",
+      "type": "presentation"
+    },
+    {
+      "title": "Disease diversity and disorder in cauliflower and their management practices adopted by farmers in Dhunibeshi municipality, Dhading",
+      "authors": "A Bhattarai, K Adhikari, RP Mainali",
+      "venue": "NEPALESE JOURNAL OF AGRICULTURAL SCIENCES 39, 2022",
+      "year": 2022,
+      "cited_by": 1,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:YOwf2qJgpHMC",
+      "type": "journal"
+    },
+    {
+      "title": "Vegetable farming and its impact on economic aspect of farmers' livelihood in Namobuddha Municipality, Kavrepalanchok.",
+      "authors": "A Basnet, K Adhikari, A Bhattarai, P Poudel",
+      "venue": "",
+      "year": 2022,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:_kc_bZDykSQC",
+      "type": "other"
+    },
+    {
+      "title": "Effect of tuber size and nutrient source on the yield of yam (Dioscorea sp.)",
+      "authors": "G Adhikari, D Bista, A Bhattarai, H Paudel",
+      "venue": "Acta Scientifica Malaysia 5 (1), 17-19, 2021",
+      "year": 2021,
+      "cited_by": 4,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:Zph67rFs4hoC",
+      "type": "journal"
+    },
+    {
+      "title": "Effect of crop establishment methods on yield of spring rice at Khairahani, Chitwan, Nepal",
+      "authors": "K Poudel, RH Timilsina, A Bhattarai",
+      "venue": "Big Data In Agriculture 3 (1), 06-11, 2020",
+      "year": 2020,
+      "cited_by": 5,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:u5HHmVD_uO8C",
+      "type": "journal"
+    },
+    {
+      "title": "Optimizing Corn Yield, Nutrient Use Efficiency and Partial Profit through Side-Dress Nitrogen Timing, and Sensor-Based Variable Nitrogen Management",
+      "authors": "A Jakhar, R Roth, A Bhattarai, G Scarpin, LM Bastos",
+      "venue": "",
+      "year": null,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:eQOLeE2rZwMC",
+      "type": "other"
+    },
+    {
+      "title": "UNIVERSITY OF GEORGIA COTTON VARIETY RECOMMENDER DASHBOARD",
+      "authors": "GJ Scarpin, LC Hand, PM Roberts, A Bhattarai, LM Bastos",
+      "venue": "Available at SSRN 5551134, 0",
+      "year": null,
+      "cited_by": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NixJyg0AAAAJ&pagesize=100&citation_for_view=NixJyg0AAAAJ:0EnyYjriUFMC",
+      "type": "other"
+    }
+  ],
+  "publication_count": 26,
+  "journal_count": 7,
+  "presentation_count": 15,
+  "profile_url": "https://scholar.google.com/citations?user=NixJyg0AAAAJ&hl=en",
+  "updated": "2026-11-18"
+}

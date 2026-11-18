@@ -52,6 +52,18 @@ Edit `dist/knowledge.md` (new paper, award, project, hobbies) and push to `main`
 
 Each question sends only the parts of `knowledge.md` that match it, so many visitors fit inside Groq's free per-minute limit, and the Worker falls back across every model your Groq account offers (open the Worker URL to see which). Safeguards built into the Worker: only this website can call it, questions are length-limited, each network address is limited to 60 questions per 10 minutes, and the AI declines off-topic requests.
 
+## Google Scholar numbers (updated automatically)
+
+The journal-article count, citations, h-index, "Cited by" badges, and any new journal article on your Google Scholar profile come from `dist/data/scholar.json`. The deploy workflow refreshes it every day (about 6:17 AM Eastern) with `scripts/update_scholar.py`, saves it to the repository, and also updates the "Citation metrics" block in `dist/knowledge.md` so the AI guide knows the latest numbers.
+
+Google blocks GitHub's servers from reading Scholar pages directly, so the daily refresh needs a free SerpApi key:
+
+1. Create a free account at <https://serpapi.com> (the free plan covers a daily refresh) and copy your API key.
+2. In this repository: **Settings → Secrets and variables → Actions → New repository secret**, name `SERPAPI_KEY`, paste the key, **Add secret**.
+3. Open **Actions → Deploy website to GitHub Pages → Run workflow** once to check it.
+
+Without the key, the site keeps the last Google Scholar numbers it saved. You can also refresh them from your own computer with `python3 scripts/update_scholar.py`, then commit and push.
+
 ## Content sources
 
 Content is curated from `Anish_Bhattarai_CV_2026.pdf`, Anish's research overview, and the published abstracts of his papers. Personal interests, sports teams, players, and additional project stories will be added only after Anish confirms what he wants to publish.
