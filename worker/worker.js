@@ -83,10 +83,17 @@ Anish Bhattarai is a Ph.D. student and Graduate Research Assistant in Crop and S
 
 ## Academic journey
 - 2015–2020: B.Sc. in Agriculture, Agriculture and Forestry University, Chitwan, Nepal. This agronomic foundation anchors his later sensor, modeling, and software work. Received an undergraduate scholarship (listed on his CV as "Full Bright Scholarship", 2015) and a 2020 startup grant for a house-plant nursery in Nepal.
-- 2022: Joined the University of Georgia as a Graduate Research Assistant on the M.S. track in Crop and Soil Sciences.
+- 2022–2027: Ph.D. in Crop and Soil Sciences, University of Georgia, Athens. Graduate Research Assistant since 2022. Expected completion 2027. GPA 3.92/4.00.
 - 2024: Graduate Certificate in Agricultural Data Science, UGA.
-- Summer 2025: Transitioned directly from the M.S. track into the Ph.D. program.
-- 2025–2027: Ph.D. in Crop and Soil Sciences, UGA. Expected completion 2027. GPA 3.92/4.00.
+
+## Research path at UGA (in order)
+1. First project: water management in pecan orchards, using an eddy covariance tower to track orchard water use.
+2. 2022–2025: variable-rate nitrogen management in cotton using crop sensors, drone (UAV) imagery, and satellite images, weighing yield, fiber quality, nitrogen-use efficiency, and profit.
+3. 2025–present: weather-data modelling, comparing UGA weather stations with the PRISM and Daymet gridded products at field scale.
+4. Latest: how temperature affects blueberry production.
+Along the way: UAV LiDAR settings for cotton canopy height (first-author paper, Remote Sensing 2025); dashboards (GeoSampler, FieldRank, Cotton × ENSO Explorer, contributions to CottonVaRx); data visualization in R Shiny, Streamlit, and the web.
+Grant writing: prepared and submitted a research proposal to SARE (Sustainable Agriculture Research and Education) in 2024; it was not funded. Details of the proposal are not published here.
+Details such as exact dates, sites, and results of the pecan and blueberry work are not published here; suggest emailing Anish.
 
 ## Current role
 Graduate Research Assistant, University of Georgia, 2022–present. He designs and analyzes field experiments in cotton and precision nutrient management; integrates crop sensors, UAV and satellite imagery, LiDAR point clouds, weather data, and geospatial modeling; and develops reproducible workflows and interactive tools for research and Extension audiences.
