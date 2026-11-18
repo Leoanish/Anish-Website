@@ -322,17 +322,19 @@ function renderPublications() {
   if (!list || !scholarData) return;
   list.replaceChildren();
   const pubs = scholarData.publications.filter(p => pubsFilter === "all" || p.role === pubsFilter);
+  const SHOWN_PRESENTATIONS = 3;
   const groups = [
     ["journal", "Journal articles"],
-    ["presentation", "Conference presentations"],
-    ["other", "Preprints, reports, and other work"]
+    ["presentation", "Conference presentations"]
   ];
   groups.forEach(([type, label]) => {
-    const items = pubs.filter(p => p.type === type);
-    if (!items.length) return;
+    const all = pubs.filter(p => p.type === type);
+    if (!all.length) return;
+    const items = type === "presentation" ? all.slice(0, SHOWN_PRESENTATIONS) : all;
     const group = el("div", "pubs-group");
     const head = el("div", "pubs-group-head");
-    head.append(el("h3", "", label), el("span", "pubs-group-count", `${items.length}`));
+    head.append(el("h3", "", label), el("span", "pubs-group-count", `${all.length}`));
+    if (type === "presentation" && all.length > items.length) head.append(el("span", "pubs-group-note", `Showing the ${items.length} most recent`));
     group.append(head);
     items.forEach(pub => {
       const featured = type === "journal" ? FEATURED_PAPERS.find(f => normalize(pub.title).startsWith(f.match)) : null;
@@ -359,6 +361,13 @@ function renderPublications() {
       row.append(open);
       group.append(row);
     });
+    if (type === "presentation" && all.length > items.length) {
+      const more = externalLink(scholarData.profile_url, "", "pubs-more");
+      const text = el("span", "pubs-more-text");
+      text.append(el("b", "", `See all ${all.length} presentations on Google Scholar`), el("span", "", "Talks and posters from ASA, CSSA, SSSA, and CANVAS meetings, with abstracts"));
+      more.append(text, el("span", "pubs-more-arrow", "↗"));
+      group.append(more);
+    }
     list.append(group);
   });
 }
@@ -406,7 +415,7 @@ fetch("data/scholar.json", { cache: "no-cache" })
     if (!data || !Array.isArray(data.publications)) return;
     scholarData = data;
     const pubs = data.publications;
-    const count = (role, type) => pubs.filter(p => (!role || p.role === role) && (!type || p.type === type)).length;
+    const count = (role, type) => pubs.filter(p => p.type !== "other" && (!role || p.role === role) && (!type || p.type === type)).length;
     const values = {
       journal_count: data.journal_count,
       citations: data.citations,
