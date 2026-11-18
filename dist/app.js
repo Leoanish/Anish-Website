@@ -431,6 +431,20 @@ fetch("data/scholar.json", { cache: "no-cache" })
   })
   .catch(() => { /* keep the numbers already written in the page */ });
 
+document.querySelectorAll("[data-award-filter]").forEach(button => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.awardFilter;
+    document.querySelectorAll("[data-award-filter]").forEach(card => {
+      const selected = card === button;
+      card.classList.toggle("active", selected);
+      card.setAttribute("aria-selected", String(selected));
+    });
+    document.querySelectorAll("[data-award-category]").forEach(row => {
+      row.hidden = filter !== "all" && row.dataset.awardCategory !== filter;
+    });
+  });
+});
+
 document.querySelectorAll("[data-cv-filter]").forEach(button => {
   button.addEventListener("click", () => {
     const filter = button.dataset.cvFilter;
