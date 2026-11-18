@@ -108,33 +108,34 @@ Frequent co-authors: Leonardo M. Bastos, Gonzalo J. Scarpin, Lavesta C. Hand, Jo
 ## Citation metrics (from Google Scholar, updated 2026-11-18)
 - Total citations: 39 (since 2021: 39); h-index 4; i10-index 1.
 - On the profile: 7 journal articles, 15 conference presentations, 26 items in total. Google Scholar profile: https://scholar.google.com/citations?user=NixJyg0AAAAJ&hl=en
+- Role: lead (first) author on 2 journal articles and 8 conference presentations; co-author on 5 journal articles and 7 presentations.
 - Citations per publication:
-  - [presentation] Comparative Evaluation of Kriging Models and Variogram Structures for Daily Climate Interpolation across Georgia, United States (2010–2024) (CANVAS 2026, 2026, 2026): cited 0 times
-  - [journal] CottonVaRx: A cotton variety recommender dashboard use case from Georgia, USA (European Journal of Agronomy 177, 128090, 2026, 2026): cited 1 times
-  - [presentation] Geosampler: A Comprehensive Geospatial Data Acquisition and Sampling Dashboard (CANVAS 2026, 2026, 2026): cited 0 times
-  - [journal] Peanut yield and grade prediction in Georgia, USA: Integrating management, climate, and remote sensing data with explainable AI (Computers and Electronics in Agriculture 241, 111270, 2026, 2026): cited 4 times
-  - [presentation] Assessing Sensor-Based Variable Rate Nitrogen Recommendation from Proximal, Drone, and Satellite Platforms Under Variable Pre-Plant Nitrogen Strategies in Corn (CANVAS 2025, 2025, 2025): cited 0 times
-  - [presentation] Blending Agronomy with Technology: Data-Driven Decision for Nitrogen Management in Cotton (CANVAS 2025, 2025, 2025): cited 0 times
-  - [presentation] Comparative Analysis of in-Season Nitrogen Rate Recommendation from Proximal and Remote Sensors (CANVAS 2025, 2025, 2025): cited 0 times
-  - [journal] Cotton lint yield and quality variability in Georgia, USA: Understanding genotypic and environmental interactions (Field Crops Research 325, 109822, 2025, 2025): cited 19 times
-  - [presentation] Cotton Quality Response to Variable Rate and Fixed Nitrogen Application Strategies (CANVAS 2025, 2025, 2025): cited 0 times
-  - [presentation] Evaluating N2O Emissions from Biochar and Poultry Litter-Amended Corn-Soybean Fields (CANVAS 2025, 2025, 2025): cited 0 times
-  - [presentation] From Soil to Staple: Predicting Cotton Fiber Quality in Grower Fields Using Machine Learning (CANVAS 2025, 2025, 2025): cited 0 times
-  - [presentation] Identifying Environmental Yield Potential and Variety Responsiveness in the US Cotton Belt Using Four Decades of Multi-Location Data and Machine Learning (CANVAS 2025, 2025, 2025): cited 0 times
-  - [other] Optimizing UAV LiDAR Data Collection in Cotton Through Flight Settings and Data Processing Best Practices (Preprints, 2025, 2025): cited 0 times
-  - [journal] Optimizing unmanned aerial vehicle LiDAR data collection in cotton through flight settings and data processing (Remote Sensing 17 (9), 1504, 2025, 2025): cited 5 times
-  - [presentation] Predicting Yield Stability Classes Using Satellite Imagery (CANVAS 2025, 2025, 2025): cited 0 times
-  - [presentation] Sensor-Based Side Dress Nitrogen Management Enhances Yield, Efficiency, and Profitability in Corn Under Varying Pre-Plant Strategies (CANVAS 2025, 2025, 2025): cited 0 times
-  - [presentation] Comparing Proximal and Remote Sensing Approaches to Nitrogen Management in Cotton (ASA, CSSA, SSSA International Annual Meeting, 2024, 2024): cited 0 times
-  - [presentation] Sensor-Based Nitrogen Management in Cotton Maintains Yield and Improves Profit and Use Efficiency (ASA, CSSA, SSSA International Annual Meeting, 2024, 2024): cited 0 times
-  - [presentation] Enhancing Nitrogen Management for High-Yielding Corn: Updated Recommendations and Sensor Technology Assessment (ASA, CSSA, SSSA International Annual Meeting, 2023, 2023): cited 0 times
-  - [presentation] Side-Dress Nitrogen Rate and Sensor-Based Variable Management in Cotton (ASA, CSSA, SSSA International Annual Meeting, 2023, 2023): cited 0 times
-  - [journal] Disease diversity and disorder in cauliflower and their management practices adopted by farmers in Dhunibeshi municipality, Dhading (NEPALESE JOURNAL OF AGRICULTURAL SCIENCES 39, 2022, 2022): cited 1 times
-  - [other] Vegetable farming and its impact on economic aspect of farmers' livelihood in Namobuddha Municipality, Kavrepalanchok. (no venue listed, 2022): cited 0 times
-  - [journal] Effect of tuber size and nutrient source on the yield of yam (Dioscorea sp.) (Acta Scientifica Malaysia 5 (1), 17-19, 2021, 2021): cited 4 times
-  - [journal] Effect of crop establishment methods on yield of spring rice at Khairahani, Chitwan, Nepal (Big Data In Agriculture 3 (1), 06-11, 2020, 2020): cited 5 times
-  - [other] Optimizing Corn Yield, Nutrient Use Efficiency and Partial Profit through Side-Dress Nitrogen Timing, and Sensor-Based Variable Nitrogen Management (no venue listed, n.d.): cited 0 times
-  - [other] UNIVERSITY OF GEORGIA COTTON VARIETY RECOMMENDER DASHBOARD (Available at SSRN 5551134, 0, n.d.): cited 0 times
+  - [presentation, lead author] Comparative Evaluation of Kriging Models and Variogram Structures for Daily Climate Interpolation across Georgia, United States (2010–2024) (CANVAS 2026, 2026, 2026; authors: A Bhattarai, K Poudel, A Jakhar, AK Dhaliwal, LM Bastos): cited 0 times
+  - [journal, co-author] CottonVaRx: A cotton variety recommender dashboard use case from Georgia, USA (European Journal of Agronomy 177, 128090, 2026, 2026; authors: GJ Scarpin, LC Hand, PM Roberts, A Bhattarai, LM Bastos): cited 1 times
+  - [presentation, lead author] Geosampler: A Comprehensive Geospatial Data Acquisition and Sampling Dashboard (CANVAS 2026, 2026, 2026; authors: A Bhattarai, K Poudel, A Jakhar, AK Dhaliwal, LM Bastos): cited 0 times
+  - [journal, co-author] Peanut yield and grade prediction in Georgia, USA: Integrating management, climate, and remote sensing data with explainable AI (Computers and Electronics in Agriculture 241, 111270, 2026, 2026; authors: GJ Scarpin, SB Studstill, WS Monfort, RS Tubbs, C Pilon, A Jakhar, ...): cited 4 times
+  - [presentation, co-author] Assessing Sensor-Based Variable Rate Nitrogen Recommendation from Proximal, Drone, and Satellite Platforms Under Variable Pre-Plant Nitrogen Strategies in Corn (CANVAS 2025, 2025, 2025; authors: A Jakhar, A Bhattarai, K Poudel, AK Dhaliwal, G Scarpin, LM Bastos): cited 0 times
+  - [presentation, lead author] Blending Agronomy with Technology: Data-Driven Decision for Nitrogen Management in Cotton (CANVAS 2025, 2025, 2025; authors: A Bhattarai, G Scarpin, A Jakhar, K Poudel, AK Dhaliwal, WM Porter, ...): cited 0 times
+  - [presentation, lead author] Comparative Analysis of in-Season Nitrogen Rate Recommendation from Proximal and Remote Sensors (CANVAS 2025, 2025, 2025; authors: A Bhattarai, G Scarpin, A Jakhar, K Poudel, AK Dhaliwal, WM Porter, ...): cited 0 times
+  - [journal, co-author] Cotton lint yield and quality variability in Georgia, USA: Understanding genotypic and environmental interactions (Field Crops Research 325, 109822, 2025, 2025; authors: GJ Scarpin, A Bhattarai, LC Hand, JL Snider, PM Roberts, LM Bastos): cited 19 times
+  - [presentation, lead author] Cotton Quality Response to Variable Rate and Fixed Nitrogen Application Strategies (CANVAS 2025, 2025, 2025; authors: A Bhattarai, G Scarpin, A Jakhar, K Poudel, AK Dhaliwal, WM Porter, ...): cited 0 times
+  - [presentation, co-author] Evaluating N2O Emissions from Biochar and Poultry Litter-Amended Corn-Soybean Fields (CANVAS 2025, 2025, 2025; authors: K Poudel, LM Bastos, A Bhattarai, A Jakhar, AK Dhaliwal, G Scarpin): cited 0 times
+  - [presentation, co-author] From Soil to Staple: Predicting Cotton Fiber Quality in Grower Fields Using Machine Learning (CANVAS 2025, 2025, 2025; authors: AK Dhaliwal, LM Bastos, G Scarpin, A Bhattarai, A Jakhar, K Jagadish): cited 0 times
+  - [presentation, co-author] Identifying Environmental Yield Potential and Variety Responsiveness in the US Cotton Belt Using Four Decades of Multi-Location Data and Machine Learning (CANVAS 2025, 2025, 2025; authors: AK Dhaliwal, LM Bastos, G Scarpin, A Bhattarai, SVK Jagadish, A Jakhar, ...): cited 0 times
+  - [other, lead author] Optimizing UAV LiDAR Data Collection in Cotton Through Flight Settings and Data Processing Best Practices (Preprints, 2025, 2025; authors: A Bhattarai, GJ Scarpin, A Jakhar, W Porter, LC Hand, J Snider, ...): cited 0 times
+  - [journal, lead author] Optimizing unmanned aerial vehicle LiDAR data collection in cotton through flight settings and data processing (Remote Sensing 17 (9), 1504, 2025, 2025; authors: A Bhattarai, GJ Scarpin, A Jakhar, W Porter, LC Hand, JL Snider, ...): cited 5 times
+  - [presentation, co-author] Predicting Yield Stability Classes Using Satellite Imagery (CANVAS 2025, 2025, 2025; authors: K Poudel, LM Bastos, A Bhattarai, A Jakhar, AK Dhaliwal, G Scarpin): cited 0 times
+  - [presentation, co-author] Sensor-Based Side Dress Nitrogen Management Enhances Yield, Efficiency, and Profitability in Corn Under Varying Pre-Plant Strategies (CANVAS 2025, 2025, 2025; authors: A Jakhar, G Scarpin, K Poudel, AK Dhaliwal, A Bhattarai, LM Bastos): cited 0 times
+  - [presentation, lead author] Comparing Proximal and Remote Sensing Approaches to Nitrogen Management in Cotton (ASA, CSSA, SSSA International Annual Meeting, 2024, 2024; authors: A Bhattarai, LM Bastos, A Jakhar, G Scarpin): cited 0 times
+  - [presentation, lead author] Sensor-Based Nitrogen Management in Cotton Maintains Yield and Improves Profit and Use Efficiency (ASA, CSSA, SSSA International Annual Meeting, 2024, 2024; authors: A Bhattarai, LM Bastos, A Jakhar, G Scarpin): cited 0 times
+  - [presentation, co-author] Enhancing Nitrogen Management for High-Yielding Corn: Updated Recommendations and Sensor Technology Assessment (ASA, CSSA, SSSA International Annual Meeting, 2023, 2023; authors: A Jakhar, RT Roth, A Bhattarai, LM Bastos): cited 0 times
+  - [presentation, lead author] Side-Dress Nitrogen Rate and Sensor-Based Variable Management in Cotton (ASA, CSSA, SSSA International Annual Meeting, 2023, 2023; authors: A Bhattarai, LM Bastos): cited 0 times
+  - [journal, lead author] Disease diversity and disorder in cauliflower and their management practices adopted by farmers in Dhunibeshi municipality, Dhading (NEPALESE JOURNAL OF AGRICULTURAL SCIENCES 39, 2022, 2022; authors: A Bhattarai, K Adhikari, RP Mainali): cited 1 times
+  - [other, co-author] Vegetable farming and its impact on economic aspect of farmers' livelihood in Namobuddha Municipality, Kavrepalanchok. (no venue listed, 2022; authors: A Basnet, K Adhikari, A Bhattarai, P Poudel): cited 0 times
+  - [journal, co-author] Effect of tuber size and nutrient source on the yield of yam (Dioscorea sp.) (Acta Scientifica Malaysia 5 (1), 17-19, 2021, 2021; authors: G Adhikari, D Bista, A Bhattarai, H Paudel): cited 4 times
+  - [journal, co-author] Effect of crop establishment methods on yield of spring rice at Khairahani, Chitwan, Nepal (Big Data In Agriculture 3 (1), 06-11, 2020, 2020; authors: K Poudel, RH Timilsina, A Bhattarai): cited 5 times
+  - [other, co-author] Optimizing Corn Yield, Nutrient Use Efficiency and Partial Profit through Side-Dress Nitrogen Timing, and Sensor-Based Variable Nitrogen Management (no venue listed, n.d.; authors: A Jakhar, R Roth, A Bhattarai, G Scarpin, LM Bastos): cited 0 times
+  - [other, co-author] UNIVERSITY OF GEORGIA COTTON VARIETY RECOMMENDER DASHBOARD (Available at SSRN 5551134, 0, n.d.; authors: GJ Scarpin, LC Hand, PM Roberts, A Bhattarai, LM Bastos): cited 0 times
 <!-- scholar:end -->
 
 ## Awards and honors (15)

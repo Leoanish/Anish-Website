@@ -286,18 +286,127 @@ document.querySelectorAll("[data-question]").forEach(button => button.addEventLi
 input.addEventListener("input", () => { input.style.height = "auto"; input.style.height = `${Math.min(input.scrollHeight, 120)}px`; });
 input.addEventListener("keydown", event => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); ask(input.value); } });
 
-// Google Scholar numbers (refreshed daily by the site's GitHub workflow into data/scholar.json).
+// Google Scholar numbers and the Publications section (data/scholar.json is refreshed daily
+// by the site's GitHub workflow).
 const normalize = value => value.toLowerCase().replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim();
-function scholarElement(tag, className, text) {
+function el(tag, className, text) {
   const element = document.createElement(tag);
   if (className) element.className = className;
-  if (text !== undefined) element.textContent = text;
+  if (text !== undefined && text !== null) element.textContent = text;
   return element;
 }
+function externalLink(href, text, className) {
+  const link = el("a", className, text);
+  link.href = href;
+  link.target = "_blank";
+  link.rel = "noreferrer";
+  return link;
+}
+// Papers with a picture and a DOI on this site, matched to Scholar titles.
+const FEATURED_PAPERS = [
+  { match: "cottonvarx", image: "cottonvarx", doi: "https://doi.org/10.1016/j.eja.2026.128090" },
+  { match: "peanut yield and grade", image: "peanut", doi: "https://doi.org/10.1016/j.compag.2025.111270" },
+  { match: "optimizing unmanned aerial vehicle lidar", image: "lidar", doi: "https://doi.org/10.3390/rs17091504" },
+  { match: "cotton lint yield and quality", image: "lint", doi: "https://doi.org/10.1016/j.fcr.2025.109822" },
+  { match: "effect of tuber size", image: "yam", doi: "https://doi.org/10.26480/asm.01.2021.17.19" },
+  { match: "effect of crop establishment", image: "rice", doi: "https://doi.org/10.26480/bda.01.2021.06.11" }
+];
+const KNOWN_NAMES = { bastos: "Leonardo M. Bastos", scarpin: "Gonzalo J. Scarpin", jakhar: "Amrinder Jakhar", hand: "Lavesta C. Hand", snider: "John L. Snider", roberts: "Phillip M. Roberts", porter: "Wesley Porter" };
+const titleCase = text => (text.length > 16 && text === text.toUpperCase() ? text.toLowerCase().replace(/\b([a-z])/g, c => c.toUpperCase()).replace(/\b(Of|And|In|The|For|On)\b/g, w => w.toLowerCase()) : text);
+
+let scholarData = null;
+let pubsFilter = "lead";
+
+function renderPublications() {
+  const list = document.querySelector(".pubs-list");
+  if (!list || !scholarData) return;
+  list.replaceChildren();
+  const pubs = scholarData.publications.filter(p => pubsFilter === "all" || p.role === pubsFilter);
+  const groups = [
+    ["journal", "Journal articles"],
+    ["presentation", "Conference presentations"],
+    ["other", "Preprints, reports, and other work"]
+  ];
+  groups.forEach(([type, label]) => {
+    const items = pubs.filter(p => p.type === type);
+    if (!items.length) return;
+    const group = el("div", "pubs-group");
+    const head = el("div", "pubs-group-head");
+    head.append(el("h3", "", label), el("span", "pubs-group-count", `${items.length}`));
+    group.append(head);
+    items.forEach(pub => {
+      const featured = type === "journal" ? FEATURED_PAPERS.find(f => normalize(pub.title).startsWith(f.match)) : null;
+      const row = el("article", `pub-row${featured ? " has-image" : ""}`);
+      row.append(el("span", "pub-year", pub.year || "—"));
+      if (featured) {
+        const thumb = el("div", `pub-thumb cv-paper-${featured.image}`);
+        thumb.setAttribute("aria-hidden", "true");
+        row.append(thumb);
+      }
+      const body = el("div", "pub-body");
+      body.append(el("h4", "", pub.title));
+      const meta = el("p", "pub-meta");
+      const venue = titleCase((pub.venue || "").replace(/,\s*\d{4}$/, "").replace(/,\s*0$/, ""));
+      if (venue) meta.append(el("em", "", venue));
+      body.append(meta);
+      const tags = el("div", "pub-tags");
+      tags.append(el("span", `pub-role ${pub.role === "lead" ? "lead" : "co"}`, pub.role === "lead" ? "Lead author" : "Co-author"));
+      if (pub.cited_by > 0) tags.append(el("span", "pub-cited", `Cited by ${pub.cited_by}`));
+      body.append(tags);
+      row.append(body);
+      const open = externalLink(featured ? featured.doi : pub.link, "↗", "pub-open");
+      open.setAttribute("aria-label", `${featured ? "Open the paper" : "Open on Google Scholar"}: ${pub.title}`);
+      row.append(open);
+      group.append(row);
+    });
+    list.append(group);
+  });
+}
+
+function renderCollaborators() {
+  const box = document.querySelector(".pubs-collab-list");
+  if (!box || !scholarData) return;
+  const counts = new Map();
+  scholarData.publications.forEach(pub => {
+    const seen = new Set();
+    (pub.authors || "").split(",").map(a => a.trim()).filter(a => a && a !== "...").forEach(author => {
+      const parts = author.split(/\s+/);
+      const surname = parts[parts.length - 1];
+      const key = surname.toLowerCase();
+      if (key === "bhattarai" || seen.has(key)) return;
+      seen.add(key);
+      const entry = counts.get(key) || { name: KNOWN_NAMES[key] || author, count: 0 };
+      entry.count += 1;
+      counts.set(key, entry);
+    });
+  });
+  [...counts.values()].sort((a, b) => b.count - a.count).slice(0, 7).forEach(person => {
+    const chip = el("span", "collab-chip");
+    chip.append(el("span", "", person.name), el("b", "", person.count));
+    chip.title = `${person.count} shared publications or presentations`;
+    box.append(chip);
+  });
+}
+
+document.querySelectorAll("[data-pubs-filter]").forEach(button => {
+  button.addEventListener("click", () => {
+    pubsFilter = button.dataset.pubsFilter;
+    document.querySelectorAll("[data-pubs-filter]").forEach(card => {
+      const selected = card === button;
+      card.classList.toggle("active", selected);
+      card.setAttribute("aria-selected", String(selected));
+    });
+    renderPublications();
+  });
+});
+
 fetch("data/scholar.json", { cache: "no-cache" })
   .then(response => (response.ok ? response.json() : null))
   .then(data => {
-    if (!data) return;
+    if (!data || !Array.isArray(data.publications)) return;
+    scholarData = data;
+    const pubs = data.publications;
+    const count = (role, type) => pubs.filter(p => (!role || p.role === role) && (!type || p.type === type)).length;
     const values = {
       journal_count: data.journal_count,
       citations: data.citations,
@@ -308,57 +417,17 @@ fetch("data/scholar.json", { cache: "no-cache" })
       const value = values[element.dataset.scholar];
       if (value !== undefined && value !== "") element.textContent = value;
     });
-
-    const pubs = data.publications || [];
-    const matched = new Set();
-    document.querySelectorAll("[data-scholar-match]").forEach(item => {
-      const key = normalize(item.dataset.scholarMatch);
-      const pub = pubs.find(p => p.type === "journal" && normalize(p.title).startsWith(key));
-      if (!pub) return;
-      matched.add(pub);
-      const text = item.querySelector("p");
-      if (text && pub.cited_by > 0) {
-        const badge = scholarElement("a", "cv-cited", `Cited by ${pub.cited_by}`);
-        badge.href = pub.link;
-        badge.target = "_blank";
-        badge.rel = "noreferrer";
-        text.append(" ", badge);
-      }
+    const pubsCounts = {
+      lead: count("lead"), lead_journal: count("lead", "journal"), lead_presentation: count("lead", "presentation"),
+      co: count("co-author"), co_journal: count("co-author", "journal"), co_presentation: count("co-author", "presentation"),
+      all: pubs.length
+    };
+    document.querySelectorAll("[data-pubs-count]").forEach(element => {
+      const value = pubsCounts[element.dataset.pubsCount];
+      if (value !== undefined) element.textContent = value;
     });
-
-    const extra = document.querySelector(".cv-scholar-extra");
-    if (!extra) return;
-    const others = pubs.filter(p => p.type === "journal" && !matched.has(p));
-    others.forEach(pub => {
-      const row = scholarElement("article", "cv-item cv-item-scholar");
-      row.append(scholarElement("span", "cv-year", pub.year || ""));
-      const body = scholarElement("div");
-      body.append(scholarElement("span", "cv-type", "Publication · from Google Scholar"), scholarElement("h3", "", pub.title));
-      const venue = scholarElement("p");
-      let venueText = pub.venue.replace(/,\s*\d{4}$/, "");
-      if (venueText === venueText.toUpperCase()) venueText = venueText.toLowerCase().replace(/\b([a-z])/g, c => c.toUpperCase()).replace(/\b(Of|And|In|The|For)\b/g, w => w.toLowerCase());
-      venue.append(scholarElement("em", "", venueText));
-      if (pub.cited_by > 0) venue.append(" ", Object.assign(scholarElement("span", "cv-cited", `Cited by ${pub.cited_by}`)));
-      body.append(venue);
-      const open = scholarElement("a", "", "↗");
-      open.href = pub.link;
-      open.target = "_blank";
-      open.rel = "noreferrer";
-      open.setAttribute("aria-label", `Open on Google Scholar: ${pub.title}`);
-      row.append(body, open);
-      extra.append(row);
-    });
-    const rest = pubs.length - pubs.filter(p => p.type === "journal").length;
-    if (rest > 0) {
-      const note = scholarElement("p", "cv-scholar-note");
-      note.append(`Plus ${rest} conference presentations and other items. `);
-      const link = scholarElement("a", "", "See everything on Google Scholar ↗");
-      link.href = data.profile_url;
-      link.target = "_blank";
-      link.rel = "noreferrer";
-      note.append(link);
-      extra.append(note);
-    }
+    renderPublications();
+    renderCollaborators();
   })
   .catch(() => { /* keep the numbers already written in the page */ });
 
@@ -371,7 +440,7 @@ document.querySelectorAll("[data-cv-filter]").forEach(button => {
       tab.setAttribute("aria-selected", String(selected));
     });
     document.querySelectorAll("[data-cv-category]").forEach(item => {
-      item.hidden = filter === "all" ? item.hasAttribute("data-cv-tab-only") : item.dataset.cvCategory !== filter;
+      item.hidden = filter !== "all" && item.dataset.cvCategory !== filter;
     });
   });
 });
