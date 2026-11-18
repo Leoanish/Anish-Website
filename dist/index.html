@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23071b18'/%3E%3Cpath d='M16 47 29 15h7l13 32h-8l-2.7-7H26.5l-2.6 7Zm13-14h7l-3.5-10Z' fill='%23d6ff6b'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=15">
+  <link rel="stylesheet" href="styles.css?v=16">
 </head>
 <body>
   <svg class="icon-library" aria-hidden="true">
@@ -43,7 +43,7 @@
       <a href="#work">Work</a>
       <a href="#publications">Publications</a>
       <a href="#tools">Tools</a>
-      <a href="#cv">CV</a>
+      <a href="#cv">Awards</a>
       <a href="#beyond">Beyond</a>
     </nav>
     <div class="ask-wrap">
@@ -413,49 +413,137 @@
 
     <section class="section-shell section-block cv-section" id="cv" aria-labelledby="cv-title">
       <div class="section-heading reveal">
-        <p class="eyebrow">Curriculum vitae</p>
-        <h2 id="cv-title">Awards, honors, and service.</h2>
-        <p>Awards and leadership at a glance. Publications have their own section above; the full four-page CV has everything.</p>
+        <p class="eyebrow">Awards &amp; service</p>
+        <h2 id="cv-title">Recognized on stage, in hackathons, and at UGA.</h2>
+        <p>Fifteen awards since 2023: judged talks and posters at national meetings, team hackathons, and honors from UGA. Pick a card to filter.</p>
       </div>
-      <div class="cv-toolbar reveal">
-        <div class="cv-tabs" role="tablist" aria-label="CV sections">
-          <button type="button" class="active" role="tab" aria-selected="true" data-cv-filter="all">Highlights</button>
-          <button type="button" role="tab" aria-selected="false" data-cv-filter="awards">Awards</button>
-          <button type="button" role="tab" aria-selected="false" data-cv-filter="leadership">Leadership</button>
+      <div class="pubs-summary awards-summary reveal" role="tablist" aria-label="Filter awards">
+        <button type="button" class="pubs-card awards-card active" role="tab" aria-selected="true" data-award-filter="all">
+          <span class="pubs-card-label">All awards</span>
+          <b>15</b>
+          <span class="pubs-card-detail">7 first · 5 second · 1 third place</span>
+        </button>
+        <button type="button" class="pubs-card awards-card" role="tab" aria-selected="false" data-award-filter="oral">
+          <span class="pubs-card-label">Oral presentations</span>
+          <b>3</b>
+          <span class="pubs-card-detail">First place every time</span>
+        </button>
+        <button type="button" class="pubs-card awards-card" role="tab" aria-selected="false" data-award-filter="poster">
+          <span class="pubs-card-label">Poster competitions</span>
+          <b>4</b>
+          <span class="pubs-card-detail">1 first · 2 second · 1 third</span>
+        </button>
+        <button type="button" class="pubs-card awards-card" role="tab" aria-selected="false" data-award-filter="hackathon">
+          <span class="pubs-card-label">Hackathons</span>
+          <b>5</b>
+          <span class="pubs-card-detail">2 first · 3 second place</span>
+        </button>
+        <button type="button" class="pubs-card awards-card" role="tab" aria-selected="false" data-award-filter="honor">
+          <span class="pubs-card-label">UGA honors</span>
+          <b>3</b>
+          <span class="pubs-card-detail">Research award, scholar, scholarship</span>
+        </button>
+      </div>
+      <div class="award-list" aria-live="polite">
+        <article class="award-row" data-award-category="oral">
+          <span class="award-year">2026</span>
+          <span class="medal gold" aria-label="1st place"><b>1</b><sup>st</sup></span>
+          <div class="award-body"><span class="award-tag">Oral presentation · 1st place</span><h3>Ph.D. Oral Competition, Precision Agriculture Systems</h3><p class="award-where">CANVAS 2026 · Portland, OR</p><p class="award-note">Presented GeoSampler, a geospatial data and sampling dashboard.</p></div>
+        </article>
+        <article class="award-row" data-award-category="hackathon">
+          <span class="award-year">2026</span>
+          <span class="medal silver" aria-label="2nd place"><b>2</b><sup>nd</sup></span>
+          <div class="award-body"><span class="award-tag">Hackathon · 2nd place</span><h3>CANVAS Student Hackathon</h3><p class="award-where">CANVAS 2026 · Portland, OR</p><p class="award-note">Built Root Cause, a nitrogen-rate dashboard for Midwest corn growers.</p></div>
+        </article>
+        <article class="award-row" data-award-category="hackathon">
+          <span class="award-year">2026</span>
+          <span class="medal silver" aria-label="2nd place"><b>2</b><sup>nd</sup></span>
+          <div class="award-body"><span class="award-tag">Hackathon · 2nd place</span><h3>NxS Hackathon, Team Georgia</h3><p class="award-where">Nitrogen Use Efficiency Workshop · Mississippi State University</p><p class="award-note">Built NxS Advisor from a multi-state nitrogen-by-sulfur dataset.</p></div>
+        </article>
+        <article class="award-row" data-award-category="honor">
+          <span class="award-year">2026</span>
+          <span class="medal honor" aria-label="Scholarship"><svg aria-hidden="true"><use href="#icon-award"/></svg></span>
+          <div class="award-body"><span class="award-tag">UGA honor · Scholarship</span><h3>Eterna Fund Scholarship</h3><p class="award-where">UGA College of Agricultural and Environmental Sciences Alumni Association</p></div>
+        </article>
+        <article class="award-row" data-award-category="oral">
+          <span class="award-year">2025</span>
+          <span class="medal gold" aria-label="1st place"><b>1</b><sup>st</sup></span>
+          <div class="award-body"><span class="award-tag">Oral presentation · 1st place</span><h3>Graduate Oral Competition, Precision Agriculture Systems</h3><p class="award-where">ASA, CSSA, and SSSA Annual Meeting · Salt Lake City, UT</p></div>
+        </article>
+        <article class="award-row" data-award-category="hackathon">
+          <span class="award-year">2025</span>
+          <span class="medal gold" aria-label="1st place"><b>1</b><sup>st</sup></span>
+          <div class="award-body"><span class="award-tag">Hackathon · 1st place</span><h3>Bayer Data Intelligence and Code Competition, Team DataGenix</h3><p class="award-where">Graduate hackathon · ASA, CSSA, and SSSA Annual Meeting · Salt Lake City, UT</p></div>
+        </article>
+        <article class="award-row" data-award-category="poster">
+          <span class="award-year">2025</span>
+          <span class="medal silver" aria-label="2nd place"><b>2</b><sup>nd</sup></span>
+          <div class="award-body"><span class="award-tag">Poster · 2nd place</span><h3>Graduate Poster Competition</h3><p class="award-where">Institute of Integrative Precision Agriculture Conference · Perry, GA</p></div>
+        </article>
+        <article class="award-row" data-award-category="honor">
+          <span class="award-year">2025</span>
+          <span class="medal honor" aria-label="Honor"><svg aria-hidden="true"><use href="#icon-award"/></svg></span>
+          <div class="award-body"><span class="award-tag">UGA honor · Honor</span><h3>Outstanding Graduate Student Scholar</h3><p class="award-where">UGA College of Agricultural and Environmental Sciences Alumni Association</p></div>
+        </article>
+        <article class="award-row" data-award-category="oral">
+          <span class="award-year">2024</span>
+          <span class="medal gold" aria-label="1st place"><b>1</b><sup>st</sup></span>
+          <div class="award-body"><span class="award-tag">Oral presentation · 1st place</span><h3>Graduate Oral Competition, Precision Agriculture Systems</h3><p class="award-where">ASA, CSSA, and SSSA Annual Meeting · San Antonio, TX</p></div>
+        </article>
+        <article class="award-row" data-award-category="poster">
+          <span class="award-year">2024</span>
+          <span class="medal gold" aria-label="1st place"><b>1</b><sup>st</sup></span>
+          <div class="award-body"><span class="award-tag">Poster · 1st place</span><h3>Graduate Poster Competition, Sensor-Based Nutrient Management</h3><p class="award-where">ASA, CSSA, and SSSA Annual Meeting · San Antonio, TX</p></div>
+        </article>
+        <article class="award-row" data-award-category="poster">
+          <span class="award-year">2024</span>
+          <span class="medal silver" aria-label="2nd place"><b>2</b><sup>nd</sup></span>
+          <div class="award-body"><span class="award-tag">Poster · 2nd place</span><h3>Poster Competition</h3><p class="award-where">International Conference on Precision Agriculture · Manhattan, KS</p></div>
+        </article>
+        <article class="award-row" data-award-category="honor">
+          <span class="award-year">2024</span>
+          <span class="medal gold" aria-label="1st place"><b>1</b><sup>st</sup></span>
+          <div class="award-body"><span class="award-tag">UGA honor · 1st place</span><h3>E. Broadus Browne Research Award</h3><p class="award-where">UGA College of Agricultural and Environmental Sciences</p></div>
+        </article>
+        <article class="award-row" data-award-category="poster">
+          <span class="award-year">2023</span>
+          <span class="medal bronze" aria-label="3rd place"><b>3</b><sup>rd</sup></span>
+          <div class="award-body"><span class="award-tag">Poster · 3rd place</span><h3>Graduate Poster Competition</h3><p class="award-where">ASA, CSSA, and SSSA Annual Meeting · St. Louis, MO</p></div>
+        </article>
+        <article class="award-row" data-award-category="hackathon">
+          <span class="award-year">2023</span>
+          <span class="medal silver" aria-label="2nd place"><b>2</b><sup>nd</sup></span>
+          <div class="award-body"><span class="award-tag">Hackathon · 2nd place</span><h3>Graduate Student Hackathon</h3><p class="award-where">ASA, CSSA, and SSSA Annual Meeting · St. Louis, MO</p></div>
+        </article>
+        <article class="award-row" data-award-category="hackathon">
+          <span class="award-year">2023</span>
+          <span class="medal gold" aria-label="1st place"><b>1</b><sup>st</sup></span>
+          <div class="award-body"><span class="award-tag">Hackathon · 1st place</span><h3>Student Hackathon, Crop Track</h3><p class="award-where">Institute of Integrative Precision Agriculture · Athens, GA</p></div>
+        </article>
+      </div>
+      <div class="service-grid reveal">
+        <div class="service-col">
+          <h3>Leadership</h3>
+          <ul>
+            <li><span>2024–2026</span><div><b>Secretary, Integrative Precision Agriculture Club</b><p>University of Georgia</p></div></li>
+            <li><span>2024–2025</span><div><b>President, Nepalese Student Association</b><p>University of Georgia</p></div></li>
+          </ul>
         </div>
-        <a class="download-cv" href="assets/Anish_Bhattarai_CV_2026.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
+        <div class="service-col">
+          <h3>Outreach &amp; Extension</h3>
+          <ul>
+            <li><span>2024</span><div><b>Presenter, Farmers Field Day</b><p>In-season nitrogen management · Watkinsville, GA</p></div></li>
+            <li><span>2024</span><div><b>Invited speaker, Precision Agriculture Tour</b><p>Watkinsville, GA</p></div></li>
+            <li><span>2024</span><div><b>Precision agriculture outreach for high-school students</b><p>Athens, GA</p></div></li>
+            <li><span>2023</span><div><b>Cotton Production Field Day</b><p>Midville, GA</p></div></li>
+            <li><span>2023</span><div><b>Farmers Field Day</b><p>Watkinsville, GA</p></div></li>
+          </ul>
+        </div>
       </div>
-      <div class="cv-list" aria-live="polite">
-        <article class="cv-item reveal" data-cv-category="awards">
-          <span class="cv-year">2026</span>
-          <div><span class="cv-type">Award</span><h3>First place — Precision Agriculture Systems Ph.D. oral competition</h3><p>CANVAS 2026, Portland, Oregon. Presented GeoSampler, a geospatial data and sampling dashboard.</p></div>
-        </article>
-        <article class="cv-item reveal" data-cv-category="awards">
-          <span class="cv-year">2026</span>
-          <div><span class="cv-type">Award</span><h3>Second place — CANVAS Student Hackathon</h3><p>CANVAS 2026, Portland, Oregon. Built a nitrogen-rate recommendation dashboard for Midwest growers.</p></div>
-        </article>
-        <article class="cv-item reveal" data-cv-category="awards">
-          <span class="cv-year">2026</span>
-          <div><span class="cv-type">Award</span><h3>NxS Hackathon — Second Place, Team Georgia</h3><p>Nitrogen Use Efficiency Workshop, Mississippi State University.</p></div>
-        </article>
-        <article class="cv-item reveal" data-cv-category="awards">
-          <span class="cv-year">2025</span>
-          <div><span class="cv-type">Award</span><h3>First place — Precision Agriculture Systems oral competition</h3><p>ASA, CSSA, and SSSA Annual Meeting, Salt Lake City.</p></div>
-        </article>
-        <article class="cv-item reveal" data-cv-category="awards">
-          <span class="cv-year">2024</span>
-          <div><span class="cv-type">Award</span><h3>First place — E. Broadus Browne Research Award</h3><p>UGA College of Agricultural and Environmental Sciences.</p></div>
-        </article>
-        <article class="cv-item reveal" data-cv-category="leadership">
-          <span class="cv-year">2024—26</span>
-          <div><span class="cv-type">Leadership</span><h3>Secretary, Integrative Precision Agriculture Club</h3><p>University of Georgia.</p></div>
-        </article>
-        <article class="cv-item reveal" data-cv-category="leadership">
-          <span class="cv-year">2024—25</span>
-          <div><span class="cv-type">Leadership</span><h3>President, Nepalese Student Association</h3><p>University of Georgia.</p></div>
-        </article>
+      <div class="cv-cta reveal">
+        <p>The full four-page CV lists every publication, award, funding source, skill, and tool link.</p>
+        <a class="primary-action" href="assets/Anish_Bhattarai_CV_2026.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
       </div>
-      <p class="cv-footnote">The downloadable CV includes every publication, all fifteen awards, extension activities, funding, skills, and links to every tool.</p>
     </section>
 
     <section class="beyond-section" id="beyond" aria-labelledby="beyond-title">
@@ -540,6 +628,6 @@
     <p class="agent-disclaimer">AI-generated from Anish’s public CV and publications. It can make mistakes — check the CV for anything important.</p>
   </aside>
 
-  <script src="app.js?v=14"></script>
+  <script src="app.js?v=15"></script>
 </body>
 </html>

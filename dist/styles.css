@@ -432,3 +432,47 @@ a.cv-cited:hover { background: #cfe5da; }
   .pub-open { grid-column: 2; width: 36px; height: 36px; }
   .pub-body h4 { font-size: 20px; }
 }
+
+/* Awards & service */
+.awards-summary { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+.awards-summary .pubs-card { padding: 22px 22px; }
+.awards-summary .pubs-card b { font-size: 50px; }
+.awards-summary .pubs-card-detail { font-size: 15px; }
+.award-list { border-top: 2px solid var(--forest); }
+.award-row { display: grid; grid-template-columns: 96px 64px 1fr; gap: 22px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.award-row[hidden] { display: none; }
+.award-year { align-self: start; padding-top: 18px; font-family: var(--mono); font-size: 14px; letter-spacing: .06em; }
+.medal { display: grid; grid-auto-flow: column; place-content: center; align-items: start; width: 58px; height: 58px; border-radius: 50%; border: 2px solid var(--forest); color: var(--forest); box-shadow: 0 6px 16px rgba(7,27,24,.14); }
+.medal b { font-family: var(--serif); font-size: 26px; font-weight: 600; line-height: 1.5; }
+.medal sup { margin-top: 9px; font-size: 12px; font-weight: 700; }
+.medal.gold { background: #f7c948; }
+.medal.silver { background: #dfe4e8; }
+.medal.bronze { background: #df9a62; }
+.medal.honor { background: var(--forest); color: var(--acid); place-items: center; }
+.medal.honor svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.award-tag { font-family: var(--mono); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #317562; }
+.award-body h3 { margin: 4px 0 2px; font-family: var(--serif); font-size: 24px; font-weight: 500; line-height: 1.22; }
+.award-where { margin: 0; color: var(--muted); font-size: 16px; }
+.award-note { margin: 4px 0 0; font-size: 16px; }
+.service-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 56px; }
+.service-col { padding: 30px 32px; border: 1px solid var(--line); border-radius: 18px; background: #fbfaf5; }
+.service-col h3 { margin: 0 0 12px; font-family: var(--serif); font-size: 30px; font-weight: 500; }
+.service-col ul { margin: 0; padding: 0; list-style: none; }
+.service-col li { display: grid; grid-template-columns: 104px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+.service-col li span { font-family: var(--mono); font-size: 14px; letter-spacing: .04em; }
+.service-col li b { font-size: 17px; }
+.service-col li p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+.cv-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; margin-top: 40px; padding: 28px 32px; border-radius: 18px; background: var(--forest); color: var(--paper); }
+.cv-cta p { margin: 0; max-width: 620px; color: #c9d6d1; font-size: 17px; }
+.cv-cta .primary-action { background: var(--acid); color: var(--forest); text-decoration: none; box-shadow: none; }
+.cv-cta .primary-action:hover { background: #e6ff9c; }
+@media (max-width: 1100px) { .awards-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .awards-summary { grid-template-columns: 1fr; } .service-grid { grid-template-columns: 1fr; } }
+@media (max-width: 700px) {
+  .award-row { grid-template-columns: 52px 1fr; gap: 14px; }
+  .award-year { grid-column: 1 / -1; padding-top: 0; }
+  .medal { width: 48px; height: 48px; }
+  .medal b { font-size: 22px; }
+  .service-col { padding: 22px 20px; }
+  .service-col li { grid-template-columns: 1fr; gap: 4px; }
+}
