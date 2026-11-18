@@ -153,6 +153,11 @@ def classify(pub):
     return "other"
 
 
+def role(pub):
+    first = (pub.get("authors") or "").split(",")[0].strip().lower()
+    return "lead" if first.endswith("bhattarai") and first.startswith("a") else "co-author"
+
+
 def update_knowledge(data):
     if not KNOWLEDGE.exists():
         return
@@ -162,9 +167,10 @@ def update_knowledge(data):
         f"## Citation metrics (from {data['source']}, updated {data['updated']})",
         f"- Total citations: {data['citations']}{since}; h-index {data['h_index']}; i10-index {data['i10_index']}.",
         f"- On the profile: {data['journal_count']} journal articles, {data['presentation_count']} conference presentations, {data['publication_count']} items in total. Google Scholar profile: {PROFILE}",
+        f"- Role: lead (first) author on {data['lead_journal']} journal articles and {data['lead_presentation']} conference presentations; co-author on {data['journal_count'] - data['lead_journal']} journal articles and {data['presentation_count'] - data['lead_presentation']} presentations.",
         "- Citations per publication:",
     ]
-    lines += [f"  - [{p['type']}] {p['title']} ({p['venue'] or 'no venue listed'}, {p['year'] or 'n.d.'}): cited {p['cited_by']} times" for p in data["publications"]]
+    lines += [f"  - [{p['type']}, {'lead author' if p['role'] == 'lead' else 'co-author'}] {p['title']} ({p['venue'] or 'no venue listed'}, {p['year'] or 'n.d.'}; authors: {p['authors']}): cited {p['cited_by']} times" for p in data["publications"]]
     lines.append("<!-- scholar:end -->")
     block = "\n".join(lines)
     k = KNOWLEDGE.read_text(encoding="utf-8")
@@ -195,9 +201,12 @@ def main():
     data["publications"].sort(key=lambda p: (-(p["year"] or 0), p["title"].lower()))
     for p in data["publications"]:
         p["type"] = classify(p)
+        p["role"] = role(p)
     data["publication_count"] = len(data["publications"])
     data["journal_count"] = sum(p["type"] == "journal" for p in data["publications"])
     data["presentation_count"] = sum(p["type"] == "presentation" for p in data["publications"])
+    data["lead_journal"] = sum(p["type"] == "journal" and p["role"] == "lead" for p in data["publications"])
+    data["lead_presentation"] = sum(p["type"] == "presentation" and p["role"] == "lead" for p in data["publications"])
     data["profile_url"] = PROFILE
     old = json.loads(OUT.read_text()) if OUT.exists() else {}
     if old.get("source") == "Google Scholar" and data["source"] != "Google Scholar":
