@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23071b18'/%3E%3Cpath d='M16 47 29 15h7l13 32h-8l-2.7-7H26.5l-2.6 7Zm13-14h7l-3.5-10Z' fill='%23d6ff6b'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
   <svg class="icon-library" aria-hidden="true">
@@ -68,11 +68,13 @@
           <button class="primary-action" type="button" data-open-agent>Ask about my work</button>
           <a class="text-action" href="assets/Anish_Bhattarai_CV_2026.pdf" target="_blank" rel="noreferrer">Open full CV <span aria-hidden="true">↗</span></a>
         </div>
-        <dl class="hero-stats" aria-label="Career highlights">
-          <div><dt>6</dt><dd>peer-reviewed papers</dd></div>
-          <div><dt>15</dt><dd>awards & honors</dd></div>
-          <div><dt>3.92</dt><dd>doctoral GPA</dd></div>
+        <dl class="hero-stats" aria-label="Research record">
+          <div><dt data-scholar="journal_count">7</dt><dd>journal articles</dd></div>
+          <div><dt data-scholar="citations">39</dt><dd>citations</dd></div>
+          <div><dt data-scholar="h_index">4</dt><dd>h-index</dd></div>
+          <div><dt>15</dt><dd>awards</dd></div>
         </dl>
+        <p class="stats-source">Articles and citations from <a href="https://scholar.google.com/citations?user=NixJyg0AAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>, updated <span data-scholar="updated">Nov 18, 2026</span>.</p>
       </div>
 
       <div class="hero-visual reveal">
@@ -133,7 +135,7 @@
         <article><svg class="profile-icon" aria-hidden="true"><use href="#icon-leaf"/></svg><div><span>Core question</span><h3>How can field data improve crop decisions?</h3><p>Sensor-based nitrogen management that considers yield, fiber quality, nitrogen-use efficiency, and profitability.</p></div></article>
         <article><svg class="profile-icon" aria-hidden="true"><use href="#icon-cloud"/></svg><div><span>Doctoral direction</span><h3>When does weather data represent a field?</h3><p>Comparing station and gridded products while testing the influence of distance, topography, soil, land cover, and other environmental conditions.</p></div></article>
         <article><svg class="profile-icon" aria-hidden="true"><use href="#icon-people"/></svg><div><span>Translation goal</span><h3>Make complex evidence usable.</h3><p>Reproducible workflows and interactive tools designed for farmers, Extension agents, researchers, and other agricultural decision-makers.</p></div></article>
-        <article><svg class="profile-icon" aria-hidden="true"><use href="#icon-data"/></svg><div><span>Verified record</span><h3>Research, software, and service.</h3><p>Six peer-reviewed papers, fifteen awards and honors, five outreach activities, and leadership in two UGA student organizations.</p></div></article>
+        <article><svg class="profile-icon" aria-hidden="true"><use href="#icon-data"/></svg><div><span>Verified record</span><h3>Research, software, and service.</h3><p><span data-scholar="journal_count">7</span> journal articles cited <span data-scholar="citations">39</span> times, fifteen awards and honors, five outreach activities, and leadership in two UGA student organizations.</p></div></article>
       </div>
     </section>
 
@@ -149,7 +151,7 @@
             <svg class="project-icon" aria-hidden="true"><use href="#icon-drone"/></svg>
             <p class="project-meta">UAV systems · 2024—2025</p>
             <h3>UAV LiDAR for cotton</h3>
-            <p>Evaluated flight altitude, speed, point-cloud subsampling, and terrain classification to make canopy-height data collection more efficient.</p>
+            <p>Tested drone flight height, speed, and data thinning to find the fastest, cheapest way to measure cotton canopy height accurately. Published as first author in <em>Remote Sensing</em>.</p>
             <a href="https://doi.org/10.3390/rs17091504" target="_blank" rel="noreferrer">Read the publication <span aria-hidden="true">↗</span></a>
             <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-lidar-details"><span>Explore project</span><i aria-hidden="true">+</i></button>
             <div class="project-details" id="project-lidar-details" hidden>
@@ -168,7 +170,7 @@
             <svg class="project-icon" aria-hidden="true"><use href="#icon-cloud"/></svg>
             <p class="project-meta">Weather intelligence · 2025—Present</p>
             <h3>Weather data representativeness</h3>
-            <p>Comparing station networks with PRISM and Daymet through geostatistics, machine learning, and landscape covariates.</p>
+            <p>Measuring how closely gridded weather products like PRISM and Daymet match on-farm weather stations, and where the gaps matter for decisions.</p>
             <span class="project-status">Active research</span>
             <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-weather-details"><span>Explore project</span><i aria-hidden="true">+</i></button>
             <div class="project-details" id="project-weather-details" hidden>
@@ -187,7 +189,7 @@
             <svg class="project-icon" aria-hidden="true"><use href="#icon-map"/></svg>
             <p class="project-meta">Research software · 2025—Present</p>
             <h3>GeoSampler</h3>
-            <p>An interactive workflow for spatial data acquisition, comparison, visualization, and customized downloads.</p>
+            <p>A live dashboard that turns free satellite and terrain data into field sampling plans you can take to the field. First place at CANVAS 2026.</p>
             <a href="https://recuga.shinyapps.io/geosampler/" target="_blank" rel="noreferrer">Open the dashboard <span aria-hidden="true">↗</span></a>
             <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-geosampler-details"><span>Explore project</span><i aria-hidden="true">+</i></button>
             <div class="project-details" id="project-geosampler-details" hidden>
@@ -206,7 +208,7 @@
             <svg class="project-icon" aria-hidden="true"><use href="#icon-leaf"/></svg>
             <p class="project-meta">Precision nutrition · 2022—2025</p>
             <h3>Variable-rate nitrogen</h3>
-            <p>Compared crop sensors and nitrogen recommendation approaches across yield, fiber quality, use efficiency, and profitability.</p>
+            <p>Compared crop sensors and nitrogen recommendations on yield, fiber quality, nitrogen-use efficiency, and profit across Georgia cotton fields.</p>
             <span class="project-status">Field research</span>
             <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-nitrogen-details"><span>Explore project</span><i aria-hidden="true">+</i></button>
             <div class="project-details" id="project-nitrogen-details" hidden>
@@ -225,7 +227,7 @@
             <svg class="project-icon" aria-hidden="true"><use href="#icon-scan"/></svg>
             <p class="project-meta">Computer vision · 2026—Present</p>
             <h3>Plant Pixel Extractor</h3>
-            <p>A package and plugin for reproducible plant-pixel extraction from field imagery and downstream crop analysis.</p>
+            <p>A QGIS plugin that separates plants from soil in drone images with no training data, then reports canopy cover for every plot.</p>
             <a href="https://github.com/Leoanish/ppe-qgis" target="_blank" rel="noreferrer">View the QGIS plugin <span aria-hidden="true">↗</span></a>
             <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-pixels-details"><span>Explore project</span><i aria-hidden="true">+</i></button>
             <div class="project-details" id="project-pixels-details" hidden>
@@ -380,7 +382,7 @@
       <div class="section-heading reveal">
         <p class="eyebrow">Curriculum vitae</p>
         <h2 id="cv-title">The full record, made easier to explore.</h2>
-        <p>Filter a concise view here or open the complete three-page CV.</p>
+        <p>Browse highlights by category here, or download the complete four-page CV.</p>
       </div>
       <div class="cv-toolbar reveal">
         <div class="cv-tabs" role="tablist" aria-label="CV sections">
@@ -392,42 +394,43 @@
         <a class="download-cv" href="assets/Anish_Bhattarai_CV_2026.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
       </div>
       <div class="cv-list" aria-live="polite">
-        <article class="cv-item reveal" data-cv-category="publications">
+        <article class="cv-item reveal" data-cv-category="publications" data-scholar-match="cottonvarx">
           <span class="cv-year">2026</span>
           <div class="cv-paper cv-paper-cottonvarx" role="img" aria-label="Cotton variety research plots across multiple environments"><span>01</span></div>
           <div><span class="cv-type">Publication</span><h3>CottonVaRx: a cotton variety recommender dashboard use case from Georgia, USA</h3><p><em>European Journal of Agronomy</em>, 177, 128090.</p></div>
           <a href="https://doi.org/10.1016/j.eja.2026.128090" target="_blank" rel="noreferrer" aria-label="Open CottonVaRx publication">↗</a>
         </article>
-        <article class="cv-item reveal" data-cv-category="publications">
+        <article class="cv-item reveal" data-cv-category="publications" data-scholar-match="peanut yield and grade">
           <span class="cv-year">2026</span>
           <div class="cv-paper cv-paper-peanut" role="img" aria-label="Peanut plants with remote-sensing and predictive-model overlays"><span>02</span></div>
           <div><span class="cv-type">Publication</span><h3>Peanut yield and grade prediction using explainable AI</h3><p><em>Computers and Electronics in Agriculture</em>, 241, 111270.</p></div>
           <a href="https://doi.org/10.1016/j.compag.2025.111270" target="_blank" rel="noreferrer" aria-label="Open peanut yield publication">↗</a>
         </article>
-        <article class="cv-item reveal" data-cv-category="publications">
+        <article class="cv-item reveal" data-cv-category="publications" data-scholar-match="optimizing unmanned aerial vehicle lidar">
           <span class="cv-year">2025</span>
           <div class="cv-paper cv-paper-lidar" role="img" aria-label="Research drone scanning cotton with a LiDAR point cloud"><span>03</span></div>
           <div><span class="cv-type">Publication</span><h3>Optimizing UAV LiDAR data collection in cotton</h3><p><em>Remote Sensing</em>, 17(9), 1504.</p></div>
           <a href="https://doi.org/10.3390/rs17091504" target="_blank" rel="noreferrer" aria-label="Open UAV LiDAR publication">↗</a>
         </article>
-        <article class="cv-item reveal" data-cv-category="publications">
+        <article class="cv-item reveal" data-cv-category="publications" data-scholar-match="cotton lint yield and quality">
           <span class="cv-year">2025</span>
           <div class="cv-paper cv-paper-lint" role="img" aria-label="Cotton bolls and field trials visualizing yield variability"><span>04</span></div>
           <div><span class="cv-type">Publication</span><h3>Cotton lint yield and quality variability in Georgia</h3><p><em>Field Crops Research</em>, 325, 109822.</p></div>
           <a href="https://doi.org/10.1016/j.fcr.2025.109822" target="_blank" rel="noreferrer" aria-label="Open cotton lint variability publication">↗</a>
         </article>
-        <article class="cv-item reveal" data-cv-category="publications">
+        <article class="cv-item reveal" data-cv-category="publications" data-scholar-match="effect of tuber size">
           <span class="cv-year">2021</span>
           <div class="cv-paper cv-paper-yam" role="img" aria-label="Yam tubers beside experimental nutrient treatment plots"><span>05</span></div>
           <div><span class="cv-type">Publication</span><h3>Effect of tuber size and nutrient source on the yield of yam</h3><p><em>Acta Scientifica Malaysia</em>, 5(1), 17–19.</p></div>
           <a href="https://doi.org/10.26480/asm.01.2021.17.19" target="_blank" rel="noreferrer" aria-label="Open yam nutrition publication">↗</a>
         </article>
-        <article class="cv-item reveal" data-cv-category="publications">
+        <article class="cv-item reveal" data-cv-category="publications" data-scholar-match="effect of crop establishment">
           <span class="cv-year">2021</span>
           <div class="cv-paper cv-paper-rice" role="img" aria-label="Spring rice establishment-method research plots in Nepal"><span>06</span></div>
           <div><span class="cv-type">Publication</span><h3>Effect of crop establishment methods on spring rice yield</h3><p><em>Big Data in Agriculture</em>, 3(1), 6–11.</p></div>
           <a href="https://doi.org/10.26480/bda.01.2021.06.11" target="_blank" rel="noreferrer" aria-label="Open spring rice publication">↗</a>
         </article>
+        <div class="cv-scholar-extra" data-cv-category="publications" data-cv-tab-only hidden></div>
         <article class="cv-item reveal" data-cv-category="awards">
           <span class="cv-year">2026</span>
           <div><span class="cv-type">Award</span><h3>First place — Precision Agriculture Systems Ph.D. oral competition</h3><p>CANVAS 2026, Portland, Oregon. Presented GeoSampler, a geospatial data and sampling dashboard.</p></div>
@@ -457,7 +460,7 @@
           <div><span class="cv-type">Leadership</span><h3>President, Nepalese Student Association</h3><p>University of Georgia.</p></div>
         </article>
       </div>
-      <p class="cv-footnote">The downloadable CV includes all six publications, fifteen awards, extension activities, funding, skills, and links to every tool.</p>
+      <p class="cv-footnote">The downloadable CV includes every publication, all fifteen awards, extension activities, funding, skills, and links to every tool.</p>
     </section>
 
     <section class="beyond-section" id="beyond" aria-labelledby="beyond-title">
@@ -481,10 +484,9 @@
           </article>
           <article class="beyond-card personal-card reveal">
             <svg class="beyond-icon" aria-hidden="true"><use href="#icon-award"/></svg>
-            <span class="card-kicker">The personal shelf</span>
-            <h3>Sports, teams, players & hobbies</h3>
-            <p>This part stays intentionally unfilled until Anish chooses the favorites and stories he wants to make public.</p>
-            <span class="pending-chip">Curating next</span>
+            <span class="card-kicker">Out in the field</span>
+            <h3>Taking research to growers.</h3>
+            <p>Presented in-season nitrogen management at a 2024 Farmers Field Day, spoke on the Precision Agriculture Tour, and introduced high-school students to precision agriculture.</p>
           </article>
         </div>
       </div>
@@ -543,6 +545,6 @@
     <p class="agent-disclaimer">AI-generated from Anish’s public CV and publications. It can make mistakes — check the CV for anything important.</p>
   </aside>
 
-  <script src="app.js?v=11"></script>
+  <script src="app.js?v=13"></script>
 </body>
 </html>

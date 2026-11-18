@@ -3,7 +3,7 @@
 Edit this file to change what the AI knows. Only public information belongs here.
 
 ## Who is Anish? (short answer)
-Anish Bhattarai is a Ph.D. student and Graduate Research Assistant in Crop and Soil Sciences at the University of Georgia (UGA) in Athens, Georgia, USA. He is a precision agriculture researcher: he combines agronomy, crop sensors, drones (UAV LiDAR and imagery), satellite and weather data, spatial modeling, and software to turn complex field data into practical decisions for farmers, Extension agents, and researchers. He grew up academically in Nepal (B.Sc. in Agriculture, Chitwan) and moved to UGA in 2022. He has 6 peer-reviewed papers, 15 awards and honors, a 3.92/4.00 doctoral GPA, and has built several open research tools (GeoSampler, Plant Pixel Extractor, FieldRank, Cotton × ENSO Explorer). His site's tagline: "I turn field data into decisions that travel."
+Anish Bhattarai is a Ph.D. student and Graduate Research Assistant in Crop and Soil Sciences at the University of Georgia (UGA) in Athens, Georgia, USA. He is a precision agriculture researcher: he combines agronomy, crop sensors, drones (UAV LiDAR and imagery), satellite and weather data, spatial modeling, and software to turn complex field data into practical decisions for farmers, Extension agents, and researchers. He grew up academically in Nepal (B.Sc. in Agriculture, Chitwan) and moved to UGA in 2022. He has 7 journal articles listed on Google Scholar (39 citations, h-index 4 as of November 2026; see "Citation metrics" for the latest numbers), 15 awards and honors, a 3.92/4.00 doctoral GPA, and has built several open research tools (GeoSampler, Plant Pixel Extractor, FieldRank, Cotton × ENSO Explorer). His site's tagline: "I turn field data into decisions that travel."
 
 ## Contact and links
 - Email: ab68010@uga.edu (best way to reach him for collaboration, speaking, or questions)
@@ -57,7 +57,8 @@ Doctoral research (2025–present) — "Assessing Spatial Representativeness of 
 
 Where to try things: the website's "Tools & dashboards" section links every live app and repository. Live apps: GeoSampler, FieldRank, Cotton × ENSO Explorer. Installable: Plant Pixel Extractor QGIS plugin (version 3.8, needs QGIS 3.28 or newer; install from the GitHub repository's releases or ZIP). Code only: Root Cause, LiDAR Processing. All public repositories: https://github.com/Leoanish?tab=repositories
 
-## Peer-reviewed publications (6)
+## Peer-reviewed publications
+Six papers are summarised in detail below. Google Scholar also lists a 2022 article in the Nepalese Journal of Agricultural Sciences: "Disease diversity and disorder in cauliflower and their management practices adopted by farmers in Dhunibeshi municipality, Dhading" (co-author; no summary available here, so point to Google Scholar for it). The "Citation metrics" section has current citation counts for every paper.
 Publications at a glance (newest first). Every paper below has a summary of results, a link, and a citation. When asked about a paper, never say its results are unavailable. Answer with a one-line summary, then 3 to 5 short bullets of results in plain words, then "Explore more:" with the DOI link, then "Cite this paper:" with the citation exactly as written. Use only the facts and numbers written in that paper's summary: do not add other methods, model names, values, or comparisons, and never estimate numbers. If someone asks for a detail that is not in the summary, say it is in the full paper and give the link. Do not use tables; use short bullets.
 - 2026 · CottonVaRx variety recommender dashboard · European Journal of Agronomy · co-author · https://doi.org/10.1016/j.eja.2026.128090
 - 2026 · Peanut yield and grade prediction with explainable AI · Computers and Electronics in Agriculture · co-author · https://doi.org/10.1016/j.compag.2025.111270
@@ -102,6 +103,39 @@ Frequent co-authors: Leonardo M. Bastos, Gonzalo J. Scarpin, Lavesta C. Hand, Jo
    - Takeaway: mechanical transplanting was the most productive and most profitable way to establish spring rice there; dry direct seeding was not profitable.
    - Explore more: https://doi.org/10.26480/bda.01.2021.06.11
    - Cite this paper: Poudel, K., Timilsina, R. H., & Bhattarai, A. (2021). Effect of crop establishment methods on yield of spring rice at Khairahani, Chitwan, Nepal. Big Data in Agriculture, 3(1), 6–11. https://doi.org/10.26480/bda.01.2021.06.11
+
+<!-- scholar:start -->
+## Citation metrics (from Google Scholar, updated 2026-11-18)
+- Total citations: 39 (since 2021: 39); h-index 4; i10-index 1.
+- On the profile: 7 journal articles, 15 conference presentations, 26 items in total. Google Scholar profile: https://scholar.google.com/citations?user=NixJyg0AAAAJ&hl=en
+- Citations per publication:
+  - [presentation] Comparative Evaluation of Kriging Models and Variogram Structures for Daily Climate Interpolation across Georgia, United States (2010–2024) (CANVAS 2026, 2026, 2026): cited 0 times
+  - [journal] CottonVaRx: A cotton variety recommender dashboard use case from Georgia, USA (European Journal of Agronomy 177, 128090, 2026, 2026): cited 1 times
+  - [presentation] Geosampler: A Comprehensive Geospatial Data Acquisition and Sampling Dashboard (CANVAS 2026, 2026, 2026): cited 0 times
+  - [journal] Peanut yield and grade prediction in Georgia, USA: Integrating management, climate, and remote sensing data with explainable AI (Computers and Electronics in Agriculture 241, 111270, 2026, 2026): cited 4 times
+  - [presentation] Assessing Sensor-Based Variable Rate Nitrogen Recommendation from Proximal, Drone, and Satellite Platforms Under Variable Pre-Plant Nitrogen Strategies in Corn (CANVAS 2025, 2025, 2025): cited 0 times
+  - [presentation] Blending Agronomy with Technology: Data-Driven Decision for Nitrogen Management in Cotton (CANVAS 2025, 2025, 2025): cited 0 times
+  - [presentation] Comparative Analysis of in-Season Nitrogen Rate Recommendation from Proximal and Remote Sensors (CANVAS 2025, 2025, 2025): cited 0 times
+  - [journal] Cotton lint yield and quality variability in Georgia, USA: Understanding genotypic and environmental interactions (Field Crops Research 325, 109822, 2025, 2025): cited 19 times
+  - [presentation] Cotton Quality Response to Variable Rate and Fixed Nitrogen Application Strategies (CANVAS 2025, 2025, 2025): cited 0 times
+  - [presentation] Evaluating N2O Emissions from Biochar and Poultry Litter-Amended Corn-Soybean Fields (CANVAS 2025, 2025, 2025): cited 0 times
+  - [presentation] From Soil to Staple: Predicting Cotton Fiber Quality in Grower Fields Using Machine Learning (CANVAS 2025, 2025, 2025): cited 0 times
+  - [presentation] Identifying Environmental Yield Potential and Variety Responsiveness in the US Cotton Belt Using Four Decades of Multi-Location Data and Machine Learning (CANVAS 2025, 2025, 2025): cited 0 times
+  - [other] Optimizing UAV LiDAR Data Collection in Cotton Through Flight Settings and Data Processing Best Practices (Preprints, 2025, 2025): cited 0 times
+  - [journal] Optimizing unmanned aerial vehicle LiDAR data collection in cotton through flight settings and data processing (Remote Sensing 17 (9), 1504, 2025, 2025): cited 5 times
+  - [presentation] Predicting Yield Stability Classes Using Satellite Imagery (CANVAS 2025, 2025, 2025): cited 0 times
+  - [presentation] Sensor-Based Side Dress Nitrogen Management Enhances Yield, Efficiency, and Profitability in Corn Under Varying Pre-Plant Strategies (CANVAS 2025, 2025, 2025): cited 0 times
+  - [presentation] Comparing Proximal and Remote Sensing Approaches to Nitrogen Management in Cotton (ASA, CSSA, SSSA International Annual Meeting, 2024, 2024): cited 0 times
+  - [presentation] Sensor-Based Nitrogen Management in Cotton Maintains Yield and Improves Profit and Use Efficiency (ASA, CSSA, SSSA International Annual Meeting, 2024, 2024): cited 0 times
+  - [presentation] Enhancing Nitrogen Management for High-Yielding Corn: Updated Recommendations and Sensor Technology Assessment (ASA, CSSA, SSSA International Annual Meeting, 2023, 2023): cited 0 times
+  - [presentation] Side-Dress Nitrogen Rate and Sensor-Based Variable Management in Cotton (ASA, CSSA, SSSA International Annual Meeting, 2023, 2023): cited 0 times
+  - [journal] Disease diversity and disorder in cauliflower and their management practices adopted by farmers in Dhunibeshi municipality, Dhading (NEPALESE JOURNAL OF AGRICULTURAL SCIENCES 39, 2022, 2022): cited 1 times
+  - [other] Vegetable farming and its impact on economic aspect of farmers' livelihood in Namobuddha Municipality, Kavrepalanchok. (no venue listed, 2022): cited 0 times
+  - [journal] Effect of tuber size and nutrient source on the yield of yam (Dioscorea sp.) (Acta Scientifica Malaysia 5 (1), 17-19, 2021, 2021): cited 4 times
+  - [journal] Effect of crop establishment methods on yield of spring rice at Khairahani, Chitwan, Nepal (Big Data In Agriculture 3 (1), 06-11, 2020, 2020): cited 5 times
+  - [other] Optimizing Corn Yield, Nutrient Use Efficiency and Partial Profit through Side-Dress Nitrogen Timing, and Sensor-Based Variable Nitrogen Management (no venue listed, n.d.): cited 0 times
+  - [other] UNIVERSITY OF GEORGIA COTTON VARIETY RECOMMENDER DASHBOARD (Available at SSRN 5551134, 0, n.d.): cited 0 times
+<!-- scholar:end -->
 
 ## Awards and honors (15)
 - 2026 — Precision Agriculture Systems Ph.D. Oral Competition, First Place. CANVAS 2026 conference, Portland, Oregon. Anish presented "GeoSampler: A Comprehensive Geospatial Data Acquisition and Sample Recommending Dashboard", which helps users gather geospatial data and decide where to collect samples within a field.

@@ -33,7 +33,7 @@ const profileKnowledge = [
   },
   {
     topics: ["publication", "papers", "published", "doi"],
-    answer: "Anish’s CV lists six peer-reviewed papers across precision agriculture, remote sensing, crop modeling, and agronomy. They include a first-author UAV LiDAR paper in Remote Sensing and collaborations on CottonVaRx, explainable-AI peanut yield prediction, cotton lint variability, yam nutrition, and spring rice establishment."
+    answer: "Anish has seven journal articles on Google Scholar, six of them summarised on this site, across precision agriculture, remote sensing, crop modeling, and agronomy. They include a first-author UAV LiDAR paper in Remote Sensing and collaborations on CottonVaRx, explainable-AI peanut yield prediction, cotton lint variability, yam nutrition, and spring rice establishment."
   },
   {
     topics: ["award", "honor", "competition", "hackathon"],
@@ -286,6 +286,82 @@ document.querySelectorAll("[data-question]").forEach(button => button.addEventLi
 input.addEventListener("input", () => { input.style.height = "auto"; input.style.height = `${Math.min(input.scrollHeight, 120)}px`; });
 input.addEventListener("keydown", event => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); ask(input.value); } });
 
+// Google Scholar numbers (refreshed daily by the site's GitHub workflow into data/scholar.json).
+const normalize = value => value.toLowerCase().replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim();
+function scholarElement(tag, className, text) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (text !== undefined) element.textContent = text;
+  return element;
+}
+fetch("data/scholar.json", { cache: "no-cache" })
+  .then(response => (response.ok ? response.json() : null))
+  .then(data => {
+    if (!data) return;
+    const values = {
+      journal_count: data.journal_count,
+      citations: data.citations,
+      h_index: data.h_index,
+      updated: data.updated ? new Date(`${data.updated}T12:00:00Z`).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : ""
+    };
+    document.querySelectorAll("[data-scholar]").forEach(element => {
+      const value = values[element.dataset.scholar];
+      if (value !== undefined && value !== "") element.textContent = value;
+    });
+
+    const pubs = data.publications || [];
+    const matched = new Set();
+    document.querySelectorAll("[data-scholar-match]").forEach(item => {
+      const key = normalize(item.dataset.scholarMatch);
+      const pub = pubs.find(p => p.type === "journal" && normalize(p.title).startsWith(key));
+      if (!pub) return;
+      matched.add(pub);
+      const text = item.querySelector("p");
+      if (text && pub.cited_by > 0) {
+        const badge = scholarElement("a", "cv-cited", `Cited by ${pub.cited_by}`);
+        badge.href = pub.link;
+        badge.target = "_blank";
+        badge.rel = "noreferrer";
+        text.append(" ", badge);
+      }
+    });
+
+    const extra = document.querySelector(".cv-scholar-extra");
+    if (!extra) return;
+    const others = pubs.filter(p => p.type === "journal" && !matched.has(p));
+    others.forEach(pub => {
+      const row = scholarElement("article", "cv-item cv-item-scholar");
+      row.append(scholarElement("span", "cv-year", pub.year || ""));
+      const body = scholarElement("div");
+      body.append(scholarElement("span", "cv-type", "Publication · from Google Scholar"), scholarElement("h3", "", pub.title));
+      const venue = scholarElement("p");
+      let venueText = pub.venue.replace(/,\s*\d{4}$/, "");
+      if (venueText === venueText.toUpperCase()) venueText = venueText.toLowerCase().replace(/\b([a-z])/g, c => c.toUpperCase()).replace(/\b(Of|And|In|The|For)\b/g, w => w.toLowerCase());
+      venue.append(scholarElement("em", "", venueText));
+      if (pub.cited_by > 0) venue.append(" ", Object.assign(scholarElement("span", "cv-cited", `Cited by ${pub.cited_by}`)));
+      body.append(venue);
+      const open = scholarElement("a", "", "↗");
+      open.href = pub.link;
+      open.target = "_blank";
+      open.rel = "noreferrer";
+      open.setAttribute("aria-label", `Open on Google Scholar: ${pub.title}`);
+      row.append(body, open);
+      extra.append(row);
+    });
+    const rest = pubs.length - pubs.filter(p => p.type === "journal").length;
+    if (rest > 0) {
+      const note = scholarElement("p", "cv-scholar-note");
+      note.append(`Plus ${rest} conference presentations and other items. `);
+      const link = scholarElement("a", "", "See everything on Google Scholar ↗");
+      link.href = data.profile_url;
+      link.target = "_blank";
+      link.rel = "noreferrer";
+      note.append(link);
+      extra.append(note);
+    }
+  })
+  .catch(() => { /* keep the numbers already written in the page */ });
+
 document.querySelectorAll("[data-cv-filter]").forEach(button => {
   button.addEventListener("click", () => {
     const filter = button.dataset.cvFilter;
@@ -295,7 +371,7 @@ document.querySelectorAll("[data-cv-filter]").forEach(button => {
       tab.setAttribute("aria-selected", String(selected));
     });
     document.querySelectorAll("[data-cv-category]").forEach(item => {
-      item.hidden = filter !== "all" && item.dataset.cvCategory !== filter;
+      item.hidden = filter === "all" ? item.hasAttribute("data-cv-tab-only") : item.dataset.cvCategory !== filter;
     });
   });
 });
