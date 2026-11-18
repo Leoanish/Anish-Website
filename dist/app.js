@@ -440,19 +440,45 @@ fetch("data/scholar.json", { cache: "no-cache" })
   })
   .catch(() => { /* keep the numbers already written in the page */ });
 
+// Awards: show the 5 most recent in the selected category, with a button for the rest.
+const AWARDS_SHOWN = 5;
+let awardFilter = "all";
+let awardsExpanded = false;
+const awardsMore = document.querySelector(".awards-more");
+function updateAwards() {
+  const rows = [...document.querySelectorAll("[data-award-category]")];
+  const matching = rows.filter(row => awardFilter === "all" || row.dataset.awardCategory === awardFilter);
+  rows.forEach(row => { row.hidden = true; });
+  matching.forEach((row, index) => { row.hidden = !awardsExpanded && index >= AWARDS_SHOWN; });
+  if (!awardsMore) return;
+  const extra = matching.length - AWARDS_SHOWN;
+  awardsMore.hidden = extra <= 0;
+  awardsMore.setAttribute("aria-expanded", String(awardsExpanded));
+  awardsMore.classList.toggle("open", awardsExpanded);
+  awardsMore.querySelector(".awards-more-label").textContent = awardsExpanded
+    ? "Show fewer"
+    : `Show all ${matching.length} awards`;
+}
 document.querySelectorAll("[data-award-filter]").forEach(button => {
   button.addEventListener("click", () => {
-    const filter = button.dataset.awardFilter;
+    awardFilter = button.dataset.awardFilter;
+    awardsExpanded = false;
     document.querySelectorAll("[data-award-filter]").forEach(card => {
       const selected = card === button;
       card.classList.toggle("active", selected);
       card.setAttribute("aria-selected", String(selected));
     });
-    document.querySelectorAll("[data-award-category]").forEach(row => {
-      row.hidden = filter !== "all" && row.dataset.awardCategory !== filter;
-    });
+    updateAwards();
   });
 });
+if (awardsMore) {
+  awardsMore.addEventListener("click", () => {
+    awardsExpanded = !awardsExpanded;
+    updateAwards();
+    if (!awardsExpanded) document.querySelector(".award-list")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+updateAwards();
 
 document.querySelectorAll("[data-cv-filter]").forEach(button => {
   button.addEventListener("click", () => {

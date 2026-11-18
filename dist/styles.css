@@ -538,3 +538,10 @@ a.cv-cited:hover { background: #cfe5da; }
 .pubs-more:hover .pubs-more-text span { color: #c9d6d1; }
 .pubs-more-arrow { display: grid; flex: none; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--acid); color: var(--forest); font-size: 18px; font-weight: 700; }
 @media (max-width: 700px) { .pubs-group-note { flex-basis: 100%; margin-left: 0; } .pubs-more { padding: 18px; } .pubs-more-text b { font-size: 20px; } }
+
+/* Awards: show more */
+.awards-more { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; margin-top: 18px; padding: 16px 20px; border: 1px solid var(--forest); border-radius: 999px; background: #fbfaf5; color: var(--forest); font-size: 17px; font-weight: 700; cursor: pointer; transition: background .25s ease, color .25s ease; }
+.awards-more[hidden] { display: none; }
+.awards-more:hover { background: var(--forest); color: var(--paper); }
+.awards-more-icon { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--acid); color: var(--forest); font-size: 18px; line-height: 1; transition: transform .3s ease; }
+.awards-more.open .awards-more-icon { transform: rotate(45deg); }
